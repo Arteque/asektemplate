@@ -1,3 +1,41 @@
+$colors: (
+  dark: (
+    100: #2f2f2f,
+    200: #1f1f1f,
+  ),
+  light: (
+    100: #eaeaea,
+    200: #c9c9c9,
+  ),
+  smoke: (
+    100: #eeeddc,
+    200: #dcd9c7,
+  ),
+  primary: (
+    100: #db7b1b,
+    200: #a85a13,
+  ),
+  secondary: (
+    100: #00acee,
+    200: #0079a8,
+  ),
+  success: (
+    100: #28a745,
+    200: #1e6c34,
+  ),
+  danger: (
+    100: #dc3545,
+    200: #a71d2a,
+  ),
+);
+
+$spacing: (
+  8: 0.5rem,
+  16: 1rem,
+  24: 1.5rem,
+  32: 2rem,
+);
+
 *,
 *::before,
 *::after {
@@ -5,22 +43,32 @@
   padding: 0;
   box-sizing: border-box;
 }
-:root{
-    --color-dark: #2F2F2F;
-    --color-light: #EAEAEA;
-    --color-smoke: #EEEDDC;
-    --color-primary: #DB7B1B;
-    --color-secondary: #00ACEE;
-    --color-success: #28a745;
-    --color-danger: #dc3545;
-    --title: "Bebas Neue", sans-serif;
-    --text: "Outfit", sans-serif;
+:root {
+  @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --color-#{$color}-#{$shade}: #{$value};
+    }
+  }
+
+  @each $space, $value in $spacing {
+    --space-#{$space}: #{$value};
+  }
+
+  --title: "Bebas Neue", sans-serif;
+  --text: "Outfit", sans-serif;
 }
-html, body{
-    font-family: var(--text);
-    background-color: var(--color-smoke);
+html,
+body {
+  font-family: var(--text);
+  background-color: var(--color-smoke);
+  font-size: 1.125rem;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--title);
 }
 
@@ -32,15 +80,22 @@ img {
   display: block;
   max-width: 100px;
 }
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 a {
+  text-decoration: none;
+  color: currentColor;
+
   &::after {
     display: inline-block;
     position: relative;
     width: 1.5rem;
     height: 1.5rem;
-    margin-left: 0.25rem;
+    margin-left: var(--space-8);
     top: 0.5ch;
-    background-color:var(--color-danger);
   }
   &[href$=".pdf"] {
     &::after {
@@ -48,10 +103,146 @@ a {
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M128 64C92.7 64 64 92.7 64 128L64 512C64 547.3 92.7 576 128 576L208 576L208 464C208 428.7 236.7 400 272 400L448 400L448 234.5C448 217.5 441.3 201.2 429.3 189.2L322.7 82.7C310.7 70.7 294.5 64 277.5 64L128 64zM389.5 240L296 240C282.7 240 272 229.3 272 216L272 122.5L389.5 240zM272 444C261 444 252 453 252 464L252 592C252 603 261 612 272 612C283 612 292 603 292 592L292 564L304 564C337.1 564 364 537.1 364 504C364 470.9 337.1 444 304 444L272 444zM304 524L292 524L292 484L304 484C315 484 324 493 324 504C324 515 315 524 304 524zM400 444C389 444 380 453 380 464L380 592C380 603 389 612 400 612L432 612C460.7 612 484 588.7 484 560L484 496C484 467.3 460.7 444 432 444L400 444zM420 572L420 484L432 484C438.6 484 444 489.4 444 496L444 560C444 566.6 438.6 572 432 572L420 572zM508 464L508 592C508 603 517 612 528 612C539 612 548 603 548 592L548 548L576 548C587 548 596 539 596 528C596 517 587 508 576 508L548 508L548 484L576 484C587 484 596 475 596 464C596 453 587 444 576 444L528 444C517 444 508 453 508 464z"/></svg>');
     }
   }
-  &[target="_blank"]{
-    &::after{
-        content:"";
-        background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM368 360C368 373.3 378.7 384 392 384C405.3 384 416 373.3 416 360L416 248C416 234.7 405.3 224 392 224L280 224C266.7 224 256 234.7 256 248C256 261.3 266.7 272 280 272L334.1 272L231.1 375C221.7 384.4 221.7 399.6 231.1 408.9C240.5 418.2 255.7 418.3 265 408.9L368 305.9L368 360z"/></svg>');
+  &[target="_blank"]:not(.main-header a) {
+    &::after {
+      content: "";
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM368 360C368 373.3 378.7 384 392 384C405.3 384 416 373.3 416 360L416 248C416 234.7 405.3 224 392 224L280 224C266.7 224 256 234.7 256 248C256 261.3 266.7 272 280 272L334.1 272L231.1 375C221.7 384.4 221.7 399.6 231.1 408.9C240.5 418.2 255.7 418.3 265 408.9L368 305.9L368 360z"/></svg>');
+    }
+  }
+}
+
+//General
+.container {
+  max-width: clamp(90%, 80vw, 106.25rem);
+  margin: 0 auto;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.icon {
+  svg {
+    width: 2rem;
+    height: auto;
+    fill: currentColor;
+  }
+}
+//Specific
+
+//Main Header
+
+.main-header {
+  position: relative;
+  z-index: 999;
+  border: 1px solid var(--color-light-100);
+  .logo {
+    width: 50px;
+    display: block;
+    padding-block: var(--space-8);
+  }
+  .container{
+    position: relative;
+    display:flex;
+    gap: var(--space-16);
+    flex-flow: row nowrap;
+  }
+  .header-nav-call{
+    background-color:var(--color-primary-100);
+    display:block;
+    align-content: center;
+    padding-inline:1rem;
+    text-transform: uppercase;
+    color: var(--color-light-100);
+    font-weight: 900;
+  }
+  .contact-container {
+    position: fixed;
+    bottom: 0;
+    inset-inline: 0;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-secondary-100);
+    color: var(--color-light-100);
+    gap: 1rem;
+    font-size: 1rem;
+    width: 100%;
+    a {
+      display: block;
+      padding: 0.5rem 1rem;
+    }
+    .text {
+      display: none;
+    }
+  }
+}
+
+#burger {
+  width: 2rem;
+  height: 1.5rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform:translateY(-50%);
+  span {
+    position: absolute;
+    inset-inline: 0;
+    height: calc(100% / 4);
+    background-color: var(--color-dark-100);
+    &:nth-of-type(2) {
+      top: 0;
+    }
+    &:nth-of-type(3) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:nth-of-type(4) {
+      bottom: 0;
+    }
+  }
+}
+
+.main-nav {
+  ._nav-list {
+    display:none;
+  }
+}
+
+@media (min-width: 1100px) {
+  .main-header {
+    .container {
+      display: flex;
+      gap: 1rem;
+    }
+    .contact-container {
+      position: unset;
+      li {
+        a {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+  .main-header {
+    .contact-container {
+      font-size: 1.125rem;
+      .text {
+        display: inline;
+      }
     }
   }
 }
