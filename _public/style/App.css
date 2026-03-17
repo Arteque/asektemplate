@@ -47,6 +47,10 @@ body {
   font-size: 1.125rem;
 }
 
+body {
+  container: body/inline-size;
+}
+
 h1,
 h2,
 h3,
@@ -120,7 +124,6 @@ a[target=_blank]:not(.main-header a)::after {
   position: relative;
   z-index: 999;
   border: 1px solid rgb(var(--color-light-100));
-  container: main-header/inline-size;
 }
 .main-header .logo {
   width: 50px;
@@ -263,39 +266,7 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
   pointer-events: all;
 }
 
-@media (min-width: 1100px) {
-  .main-header .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 1rem;
-  }
-  .main-header .contact-container {
-    position: unset;
-  }
-  .main-header .contact-container li a {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    gap: 0.5rem;
-  }
-}
-@media (min-width: 1400px) {
-  .main-header .contact-container {
-    font-size: 1.125rem;
-  }
-  .main-header .contact-container .text {
-    display: inline;
-  }
-}
-@container main-header (width > 860px) {
+@container body (width > 860px) {
   body::after {
     display: none;
     pointer-events: none;
@@ -325,6 +296,7 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
             align-items: stretch;
   }
   .main-header .main-nav {
+    place-content: center;
     height: 100%;
   }
   .main-header .main-nav ._burger {
@@ -361,5 +333,40 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
   .main-header .header-nav-call {
     -ms-flex-line-pack: center;
         align-content: center;
+  }
+}
+@media (min-width: 1100px) {
+  .main-header .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1rem;
+  }
+  .main-header .contact-container {
+    position: unset;
+  }
+  .main-header .contact-container li a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 0.5rem;
+  }
+  .main-header .main-nav {
+    place-content: unset;
+  }
+}
+@media (min-width: 1400px) {
+  .main-header .contact-container {
+    font-size: 1.125rem;
+  }
+  .main-header .contact-container .text {
+    display: inline;
   }
 }/*# sourceMappingURL=App.css.map */
