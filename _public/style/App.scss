@@ -457,6 +457,7 @@ body:has(.main-header.nav-is-open) {
     grid-row: 2 / -1;
     max-width: 500px;
     margin-inline: auto;
+    align-self:center;
   }
   ._col-3 {
     grid-column: 1 / -1;
