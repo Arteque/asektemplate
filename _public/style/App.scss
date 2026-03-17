@@ -218,6 +218,9 @@ a {
     font-weight: 600;
     font-size: 1rem;
   }
+  .header-nav-call{
+    display:none;
+  }
   .contact-container {
     position: fixed;
     bottom: 0;
@@ -382,6 +385,7 @@ body:has(.main-header.nav-is-open) {
       }
     }
     .header-nav-call {
+      display: block;
       align-content: center;
     }
   }

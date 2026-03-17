@@ -191,6 +191,9 @@ a[target=_blank]:not(.main-header a)::after {
   font-weight: 600;
   font-size: 1rem;
 }
+.main-header .header-nav-call {
+  display: none;
+}
 .main-header .contact-container {
   position: fixed;
   bottom: 0;
@@ -368,6 +371,7 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
     padding-block: var(--space-16);
   }
   .main-header .header-nav-call {
+    display: block;
     -ms-flex-line-pack: center;
         align-content: center;
   }
