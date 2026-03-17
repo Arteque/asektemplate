@@ -77,5 +77,17 @@
         <section class="galerie"></section>
     </main>
     <footer id="main-footer"></footer>
+
+    <script src="./_public/script/App.js"></script>
+
+    <script async>
+        // mobile nav header and burger menu behaviur
+        const burger = document.getElementById('burger');
+        const mainHeader = document.getElementById('main-header');
+
+        burger.addEventListener('click', () => {
+            mainHeader.classList.toggle('nav-is-open');
+        });
+    </script>
 </body>
 </html>

@@ -1,31 +1,31 @@
 $colors: (
   dark: (
-    100: #2f2f2f,
-    200: #1f1f1f,
+    100: "47, 47, 47",
+    200: "31, 31, 31",
   ),
   light: (
-    100: #eaeaea,
-    200: #c9c9c9,
+    100: "234, 234, 234",
+    200: "201, 201, 201",
   ),
   smoke: (
-    100: #eeeddc,
-    200: #dcd9c7,
+    100: "238, 237, 220",
+    200: "220, 217, 199",
   ),
   primary: (
-    100: #db7b1b,
-    200: #a85a13,
+    100: "219, 123, 27",
+    200: "168, 90, 19",
   ),
   secondary: (
-    100: #00acee,
-    200: #0079a8,
+    100: "0, 172, 238",
+    200: "0, 121, 168",
   ),
   success: (
-    100: #28a745,
-    200: #1e6c34,
+    100: "40, 167, 69",
+    200: "30, 108, 52",
   ),
   danger: (
-    100: #dc3545,
-    200: #a71d2a,
+    100: "220, 53, 69",
+    200: "167, 29, 42",
   ),
 );
 
@@ -34,6 +34,12 @@ $spacing: (
   16: 1rem,
   24: 1.5rem,
   32: 2rem,
+);
+
+$animation:(
+  short:0.3s ease,
+  mid: .5s ease,
+  long: 1s ease,
 );
 
 *,
@@ -54,13 +60,27 @@ $spacing: (
     --space-#{$space}: #{$value};
   }
 
+  @each $duration, $value in $animation {
+    --animation-#{$duration}: #{$value};
+  }
+
   --title: "Bebas Neue", sans-serif;
   --text: "Outfit", sans-serif;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --animation-short: 0s;
+    --animation-mid: 0s;
+    --animation-long: 0s;
+  }
+}
+
+
 html,
 body {
   font-family: var(--text);
-  background-color: var(--color-smoke);
+  background-color: rgb(var(--color-smoke-100));
   font-size: 1.125rem;
 }
 h1,
@@ -141,25 +161,25 @@ a {
 .main-header {
   position: relative;
   z-index: 999;
-  border: 1px solid var(--color-light-100);
+  border: 1px solid rgb(var(--color-light-100));
   .logo {
     width: 50px;
     display: block;
     padding-block: var(--space-8);
   }
-  .container{
+  .container {
     position: relative;
-    display:flex;
+    display: flex;
     gap: var(--space-16);
     flex-flow: row nowrap;
   }
-  .header-nav-call{
-    background-color:var(--color-primary-100);
-    display:block;
+  .header-nav-call {
+    background-color: rgb(var(--color-primary-100));
+    display: block;
     align-content: center;
-    padding-inline:1rem;
+    padding-inline: 1rem;
     text-transform: uppercase;
-    color: var(--color-light-100);
+    color: rgb(var(--color-light-100));
     font-weight: 900;
   }
   .contact-container {
@@ -170,8 +190,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-secondary-100);
-    color: var(--color-light-100);
+    background-color: rgb(var(--color-secondary-100));
+    color: rgb(var(--color-light-100));
     gap: 1rem;
     font-size: 1rem;
     width: 100%;
@@ -191,13 +211,14 @@ a {
   position: absolute;
   right: 0;
   top: 50%;
-  transform:translateY(-50%);
+  transform: translateY(-50%);
   overflow: hidden;
   span {
     position: absolute;
     inset-inline: 0;
     height: 2px;
-    background-color: var(--color-dark-100);
+    background-color: rgb(var(--color-dark-100));
+    transition: all var(--animation-short);
     &:nth-of-type(2) {
       top: 0;
     }
@@ -213,7 +234,64 @@ a {
 
 .main-nav {
   ._nav-list {
-    display:none;
+    position: absolute;
+    right: 0;
+    left: 25%;
+    background-color: rgb(var(--color-smoke-100));
+    border-radius: var(--space-8);
+    transition: all var(--animation-short);
+    top: 150%;
+    opacity:0;
+    pointer-events: none;
+    li {
+      border-block-start: 1px solid rgba(var(--color-dark-100), 0.1);
+      &:nth-of-type(1) {
+        border-block-start: transparent;
+      }
+    }
+    a {
+      display: block;
+      padding: var(--space-8) var(--space-16);
+      padding-block: var(--space-16);
+    }
+  }
+}
+body:has(.main-header.nav-is-open) {
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(
+      to top,
+      rgba(var(--color-dark-100), 0.9) 0%,
+      rgba(var(--color-dark-100), 0) 100%
+    );
+    backdrop-filter: blur(4px);
+  }
+
+  //Burger animation
+  #burger {
+    span {
+      &:nth-of-type(2) {
+        transform: rotate(45deg);
+        top: 45%;
+      }
+      &:nth-of-type(3) {
+        transform: rotate(-45deg);
+        top: 45%;
+      }
+      &:nth-of-type(4) {
+        opacity: 0;
+      }
+    }
+  }
+
+  .main-nav {
+    ._nav-list {
+      top: 105%;
+      opacity: 1;
+      pointer-events: all;
+    }
   }
 }
 
