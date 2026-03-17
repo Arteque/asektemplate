@@ -36,9 +36,9 @@ $spacing: (
   32: 2rem,
 );
 
-$animation:(
-  short:0.3s ease,
-  mid: .5s ease,
+$animation: (
+  short: 0.3s ease,
+  mid: 0.5s ease,
   long: 1s ease,
 );
 
@@ -76,7 +76,6 @@ $animation:(
   }
 }
 
-
 html,
 body {
   font-family: var(--text);
@@ -84,7 +83,7 @@ body {
   font-size: 1.125rem;
 }
 
-body{
+body {
   container: body / inline-size;
 }
 h1,
@@ -158,6 +157,16 @@ a {
     fill: currentColor;
   }
 }
+.btn-call{
+  background-color:rgb(var(--color-primary-100));
+  padding-inline: var(--space-16);
+  padding-block: var(--space-8);
+  display:block;
+  width: fit-content;
+  border-radius:0 4px 4px 0;
+  color: rgb(var(--color-light-100));
+  font-weight: 700; 
+}
 //Specific
 
 //Main Header
@@ -166,7 +175,7 @@ a {
   position: relative;
   z-index: 999;
   border: 1px solid rgb(var(--color-light-100));
-  
+
   .logo {
     width: 50px;
     display: block;
@@ -177,7 +186,7 @@ a {
     display: flex;
     gap: var(--space-16);
     flex-flow: row nowrap;
-    align-items:center;
+    align-items: center;
   }
   .header-nav-call {
     background-color: rgb(var(--color-primary-100));
@@ -250,7 +259,7 @@ a {
     border-radius: var(--space-8);
     transition: all var(--animation-short);
     top: 150%;
-    opacity:0;
+    opacity: 0;
     pointer-events: none;
     li {
       border-block-start: 1px solid rgba(var(--color-dark-100), 0.1);
@@ -304,8 +313,8 @@ body:has(.main-header.nav-is-open) {
   }
 }
 
-@container  body (width > 860px) {
-  body::after{
+@container body (width > 860px) {
+  body::after {
     display: none;
     pointer-events: none;
   }
@@ -313,24 +322,24 @@ body:has(.main-header.nav-is-open) {
     .logo {
       display: block;
       width: fit-content;
-      flex-grow:1;
-      img{
+      flex-grow: 1;
+      img {
         width: 100%;
         height: auto;
-      };
+      }
     }
     .mid-col {
-      width:100%;
+      width: 100%;
     }
-    .container{
+    .container {
       justify-content: space-between;
       align-items: stretch;
     }
     .main-nav {
-      place-content:center;
+      place-content: center;
       height: 100%;
       // align-content: center;
-      ._burger{
+      ._burger {
         display: none;
       }
       ._nav-list {
@@ -343,7 +352,7 @@ body:has(.main-header.nav-is-open) {
         gap: var(--space-16);
         opacity: 1;
         pointer-events: all;
-        margin-inline-start:auto;
+        margin-inline-start: auto;
         li {
           border-block-start: none;
         }
@@ -353,8 +362,8 @@ body:has(.main-header.nav-is-open) {
         }
       }
     }
-    .header-nav-call{
-      align-content:center;
+    .header-nav-call {
+      align-content: center;
     }
   }
 }
@@ -376,8 +385,8 @@ body:has(.main-header.nav-is-open) {
         }
       }
     }
-    .main-nav{
-      place-content:unset;
+    .main-nav {
+      place-content: unset;
     }
   }
 }
@@ -393,4 +402,77 @@ body:has(.main-header.nav-is-open) {
   }
 }
 
+//Hero Section
+.hero {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+    color: rgb(var(--color-dark-100));
+    min-height: 80dvh;
+    gap: var(--space-24);
+  }
+  ._col-1 {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    height: 100%;
+    position: relative;
+    img {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      max-width: unset;
+      width: auto;
+      height: 100%;
+      clip-path: rect(0 52% 100% 0);
+      transform: translateX(-52%);
+    }
+  }
+  ._col-2 {
+    grid-column: 1 / -1;
+    grid-row: 2 / -1;
+  }
+  ._col-3 {
+    grid-column: 1 / -1;
+    grid-row: 1 / -2;
+    position: relative;
+    img {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      max-width: unset;
+      height: 100%;
+      clip-path: rect(0 100% 100% 55%);
+      transform: translateX(-52%);
+    }
+  }
+  .__content-text {
+    .___bottom {
+      display: block;
+    }
+    p{
+      font-size: 1rem;
+    }
+  }
+}
 
+._content-call{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: var(--space-16);
+  padding-block: var(--space-16);
+}
+._content-social-links{
+  display:flex;
+  flex-flow: row nowrap;
+  align-items:center;
+  justify-content: center;
+  gap: var(--space-16);
+  li{
+    svg{
+      height: 24px;
+    }
+  }
+}

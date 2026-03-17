@@ -120,6 +120,19 @@ a[target=_blank]:not(.main-header a)::after {
   fill: currentColor;
 }
 
+.btn-call {
+  background-color: rgb(var(--color-primary-100));
+  padding-inline: var(--space-16);
+  padding-block: var(--space-8);
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 0 4px 4px 0;
+  color: rgb(var(--color-light-100));
+  font-weight: 700;
+}
+
 .main-header {
   position: relative;
   z-index: 999;
@@ -369,4 +382,89 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
   .main-header .contact-container .text {
     display: inline;
   }
+}
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+  color: rgb(var(--color-dark-100));
+  min-height: 80dvh;
+  gap: var(--space-24);
+}
+.hero ._col-1 {
+  grid-row: 1;
+  grid-column: 1/-1;
+  height: 100%;
+  position: relative;
+}
+.hero ._col-1 img {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  max-width: unset;
+  width: auto;
+  height: 100%;
+  clip-path: rect(0 52% 100% 0);
+  -webkit-transform: translateX(-52%);
+          transform: translateX(-52%);
+}
+.hero ._col-2 {
+  grid-column: 1/-1;
+  grid-row: 2/-1;
+}
+.hero ._col-3 {
+  grid-column: 1/-1;
+  grid-row: 1/-2;
+  position: relative;
+}
+.hero ._col-3 img {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  max-width: unset;
+  height: 100%;
+  clip-path: rect(0 100% 100% 55%);
+  -webkit-transform: translateX(-52%);
+          transform: translateX(-52%);
+}
+.hero .__content-text .___bottom {
+  display: block;
+}
+.hero .__content-text p {
+  font-size: 1rem;
+}
+
+._content-call {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--space-16);
+  padding-block: var(--space-16);
+}
+
+._content-social-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--space-16);
+}
+._content-social-links li svg {
+  height: 24px;
 }/*# sourceMappingURL=App.css.map */
