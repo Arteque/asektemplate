@@ -44,7 +44,8 @@ html,
 body {
   font-family: var(--text);
   background-color: rgb(var(--color-smoke-100));
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
+  color: rgb(var(--color-dark-100));
 }
 
 body {
@@ -95,6 +96,25 @@ a[href$=".pdf"]::after {
 a[target=_blank]:not(.main-header a)::after {
   content: "";
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM368 360C368 373.3 378.7 384 392 384C405.3 384 416 373.3 416 360L416 248C416 234.7 405.3 224 392 224L280 224C266.7 224 256 234.7 256 248C256 261.3 266.7 272 280 272L334.1 272L231.1 375C221.7 384.4 221.7 399.6 231.1 408.9C240.5 418.2 255.7 418.3 265 408.9L368 305.9L368 360z"/></svg>');
+}
+
+section:not(.hero) {
+  margin-block: 6.25rem;
+}
+
+h3:has(+ p) {
+  margin-block: var(--space-16);
+  font-size: 1.5rem;
+  -webkit-padding-start: var(--space-24);
+          padding-inline-start: var(--space-24);
+  -webkit-border-start: 6px solid rgb(var(--color-secondary-100));
+          border-inline-start: 6px solid rgb(var(--color-secondary-100));
+}
+
+p {
+  -webkit-padding-after: 1rem;
+          padding-block-end: 1rem;
+  color: rgba(var(--color-dark-200), 0.9);
 }
 
 .container {
@@ -163,6 +183,13 @@ a[target=_blank]:not(.main-header a)::after {
   width: fit-content;
 }
 
+.section-header {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: rgb(var(--color-primary-100));
+  padding-block: 1rem;
+}
+
 .main-header {
   position: relative;
   z-index: 999;
@@ -170,11 +197,9 @@ a[target=_blank]:not(.main-header a)::after {
 }
 .main-header .logo {
   width: 50px;
+  min-width: 50px;
   display: block;
   padding-block: var(--space-8);
-  -webkit-box-flex: 0.4;
-      -ms-flex-positive: 0.4;
-          flex-grow: 0.4;
 }
 .main-header .container {
   position: relative;
@@ -189,6 +214,8 @@ a[target=_blank]:not(.main-header a)::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: 80%;
+  padding: 0;
 }
 .main-header .header-nav-call {
   background-color: rgb(var(--color-primary-100));
@@ -360,6 +387,9 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+    -webkit-box-flex: 0.4;
+        -ms-flex-positive: 0.4;
+            flex-grow: 0.4;
   }
   .main-header .logo img {
     width: 100%;
@@ -510,8 +540,7 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
   display: block;
 }
 .hero .__content-text p {
-  font-size: 14px;
-  opacity: 0.8;
+  font-size: 15px;
 }
 
 ._content-call {
@@ -654,4 +683,9 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
     height: auto;
     width: 100%;
   }
+}
+/* A Propos Section */
+.about ._col-1 img {
+  width: 100%;
+  max-width: unset;
 }/*# sourceMappingURL=App.css.map */
