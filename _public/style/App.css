@@ -411,6 +411,9 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
     display: inline;
   }
 }
+.hero {
+  container: herocontainer/inline-size;
+}
 .hero .container {
   display: grid;
   grid-template-columns: 1fr;
@@ -502,4 +505,92 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
 ._content-social-links li svg {
   height: 20px;
   opacity: 0.5;
+}
+
+@container herocontainer (width > 900px) {
+  .hero .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: unset;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+  }
+  .hero ._col-1, .hero ._col-3 {
+    grid-row: 1/-1;
+    grid-column: 1;
+    max-width: 45dvw;
+  }
+  .hero ._col-1 img, .hero ._col-3 img {
+    left: unset;
+    -webkit-transform: unset;
+            transform: unset;
+    max-width: 45dvw;
+    height: unset;
+    bottom: 0;
+  }
+  .hero ._col-2 {
+    grid-row: 1/-1;
+    grid-column: 2;
+    text-align: left;
+  }
+  .hero ._col-2 .___bottom {
+    display: inline;
+  }
+  .hero ._col-2 p {
+    max-width: 40ch;
+  }
+  .hero ._content-call, .hero ._content-social-links {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+@container herocontainer (width > 1400px) {
+  .hero .container {
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+  }
+  .hero ._col-1 {
+    grid-column: 1;
+    -ms-flex-line-pack: end;
+        align-content: end;
+  }
+  .hero ._col-1 img {
+    max-width: unset;
+    clip-path: unset;
+    height: auto;
+    position: unset;
+  }
+  .hero ._col-2 {
+    grid-column: 2;
+  }
+  .hero ._col-2 span {
+    display: block;
+  }
+  .hero ._col-2 .___top {
+    font-size: 125px;
+    line-height: 90%;
+  }
+  .hero ._col-2 .___mid {
+    font-size: 169px;
+    line-height: 90%;
+  }
+  .hero ._col-2 .___bottom {
+    font-size: 111px;
+    line-height: 90%;
+  }
+  .hero ._col-2 p {
+    font-size: 1.125rem;
+    max-width: unset;
+  }
+  .hero ._col-3 {
+    grid-column: 3;
+    -ms-flex-line-pack: end;
+        align-content: end;
+  }
+  .hero ._col-3 img {
+    max-width: unset;
+    clip-path: unset;
+    position: unset;
+    height: auto;
+  }
 }/*# sourceMappingURL=App.css.map */
