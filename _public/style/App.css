@@ -685,7 +685,64 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
   }
 }
 /* A Propos Section */
-.about ._col-1 img {
+.about {
+  container: aboutcol1/inline-size;
+}
+.about ._col-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: var(--space-8);
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+.about ._col-1 > img {
+  grid-column: 1;
+  grid-row: 1;
   width: 100%;
-  max-width: unset;
+  max-width: 100%;
+  border-radius: var(--space-8);
+}
+.about ._col-1 > img:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+.about .__sport-icon {
+  grid-row: 2;
+  grid-column: 1/-1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--space-8);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: var(--space-8);
+}
+.about .__sport-icon img {
+  mix-blend-mode: multiply;
+}
+.about ._col-2 {
+  max-width: 619px;
+}
+
+@container aboutcol1 (width > 97ch) {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: var(--space-24);
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  ._col-2 {
+    height: 100%;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
 }/*# sourceMappingURL=App.css.map */
