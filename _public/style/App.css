@@ -198,6 +198,41 @@ p {
   padding-block: 1rem;
 }
 
+.switcher-container {
+  margin-inline: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.switcher-container span {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.switcher-container input {
+  display: none;
+}
+.switcher-container .custom-switcher {
+  width: 50px;
+  height: 25px;
+  background-color: rgb(var(--color-smoke-200));
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+}
+.switcher-container .custom-switcher::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: white;
+  border-radius: 50%;
+  -webkit-transition: all var(--animation-short);
+  transition: all var(--animation-short);
+}
+
 .main-header {
   position: relative;
   z-index: 999;
@@ -780,10 +815,30 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
     max-width: 500px;
   }
 }
+section.plan ._plans-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+section.plan ._col-1, section.plan ._col-2 {
+  background-repeat: no-repeat;
+  padding-block: 100px;
+  grid-column: 1;
+  grid-row: 1;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all var(--animation-long);
+  transition: all var(--animation-long);
+}
 section.plan ._col-1 {
   background-image: url(/_public/media/Images/Start/Pan/basketball-field.jpg);
   background-position: left center;
-  padding-block: 100px;
+  opacity: 1;
+  pointer-events: all;
+}
+section.plan ._col-2 {
+  background-image: url(/_public/media/Images/Start/Pan/football-field.jpg);
+  background-position: right center;
 }
 
 .card-container {
