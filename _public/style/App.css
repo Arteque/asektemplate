@@ -22,6 +22,7 @@
   --color-success-200: 30, 108, 52;
   --color-danger-100: 220, 53, 69;
   --color-danger-200: 167, 29, 42;
+  --space-4: 0.25rem;
   --space-8: 0.5rem;
   --space-16: 1rem;
   --space-24: 1.5rem;
@@ -98,27 +99,34 @@ a[target=_blank]:not(.main-header a)::after {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM368 360C368 373.3 378.7 384 392 384C405.3 384 416 373.3 416 360L416 248C416 234.7 405.3 224 392 224L280 224C266.7 224 256 234.7 256 248C256 261.3 266.7 272 280 272L334.1 272L231.1 375C221.7 384.4 221.7 399.6 231.1 408.9C240.5 418.2 255.7 418.3 265 408.9L368 305.9L368 360z"/></svg>');
 }
 
-section:not(.hero) {
+section[class]:not(.hero) {
   margin-block: 6.25rem;
 }
 
 h3:has(+ p) {
   margin-block: var(--space-16);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   -webkit-padding-start: var(--space-24);
           padding-inline-start: var(--space-24);
   -webkit-border-start: 6px solid rgb(var(--color-secondary-100));
           border-inline-start: 6px solid rgb(var(--color-secondary-100));
+  letter-spacing: 2px;
 }
 
+@media (min-width: 68.75rem) {
+  h3:has(+ p) {
+    font-size: 1.5rem;
+  }
+}
 p {
   -webkit-padding-after: 1rem;
           padding-block-end: 1rem;
   color: rgba(var(--color-dark-200), 0.9);
+  text-wrap: balance;
 }
 
 .container {
-  max-width: 93.75rem;
+  max-width: 1700px;
   padding-inline: 2rem;
   margin: 0 auto;
 }
@@ -769,5 +777,160 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
     height: 100%;
     -ms-flex-item-align: end;
         align-self: flex-end;
+    max-width: 500px;
   }
+}
+section.plan ._col-1 {
+  background-image: url(/_public/media/Images/Start/Pan/basketball-field.jpg);
+  background-position: left center;
+  padding-block: 100px;
+}
+
+.card-container {
+  max-width: 90%;
+  margin-inline: auto;
+}
+.card-container .__date-container {
+  background-color: rgb(var(--color-smoke-200));
+  padding: var(--space-4);
+  border-radius: var(--space-8) var(--space-8) 0 0;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--space-8);
+  max-width: 85%;
+  margin-inline: auto;
+}
+.card-container .__date-container .date {
+  font-weight: bolder;
+}
+.card-container ._card-title {
+  position: relative;
+  -webkit-padding-after: var(--space-16);
+          padding-block-end: var(--space-16);
+}
+.card-container ._card-title ._card-title-container {
+  z-index: 10;
+  background-color: white;
+  padding: var(--space-8) var(--space-24);
+  border-radius: var(--space-8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  max-width: 90%;
+  margin-inline: auto;
+}
+.card-container ._card-title .icon {
+  width: 60px;
+  border-radius: 50%;
+}
+.card-container ._card-title .icon img {
+  width: 100%;
+}
+.card-container ._card-title .text {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: rgb(var(--color-primary-100));
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+.card-container ._card-title::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(var(--color-light-100));
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  z-index: 0;
+  border-radius: var(--space-8) var(--space-8) 0 0;
+}
+.card-container .card-body {
+  background-color: rgb(var(--color-light-100));
+  padding: 0 1rem 1rem 1rem;
+  border-radius: 0 0 var(--space-8) var(--space-8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  gap: var(--space-8);
+}
+.card-container .card-body section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: var(--space-8) var(--space-16);
+  background-color: white;
+  border-radius: var(--space-8);
+  border: 2px dotted rgb(var(--color-smoke-200));
+}
+.card-container .card-body section h4 {
+  width: 60px;
+  height: 60px;
+  background-color: rgb(var(--color-dark-100));
+  color: rgb(var(--color-light-100));
+  border-radius: 50%;
+  place-content: center;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.card-container .card-body section ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--space-4);
+}
+.card-container .card-body section ul li {
+  font-size: 14px;
+  background-color: rgba(var(--color-primary-100), 0.5);
+  color: rgba(var(--color-dark-100), 0.7);
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  place-content: center;
+  border-radius: 50%;
+  font-weight: 400;
+}
+.card-container .card-body section ul li.active {
+  background-color: rgb(var(--color-primary-100));
+  color: rgb(var(--color-light-100));
+}
+.card-container .card-body section .times {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--space-4);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.card-container .card-body section .times svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+.card-container .card-body section .times .time-start-end time {
+  display: block;
 }/*# sourceMappingURL=App.css.map */

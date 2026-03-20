@@ -30,6 +30,7 @@ $colors: (
 );
 
 $spacing: (
+  4: 0.25rem,
   8: 0.5rem,
   16: 1rem,
   24: 1.5rem,
@@ -94,9 +95,7 @@ h4,
 h5,
 h6 {
   font-family: var(--title);
-
 }
-
 
 ul[class] {
   list-style: none;
@@ -137,24 +136,31 @@ a {
   }
 }
 
-section {
+section[class] {
   &:not(.hero) {
     margin-block: 6.25rem;
   }
 }
-h3:has( + p){
+h3:has(+ p) {
   margin-block: var(--space-16);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding-inline-start: var(--space-24);
   border-inline-start: 6px solid rgb(var(--color-secondary-100));
+  letter-spacing: 2px;
 }
-p{
+@media (min-width: 68.75rem) {
+  h3:has(+ p) {
+    font-size: 1.5rem;
+  }
+}
+p {
   padding-block-end: 1rem;
   color: rgba(var(--color-dark-200), 0.9);
+  text-wrap: balance;
 }
 //General
 .container {
-  max-width: 93.75rem;
+  max-width: 1700px;
   padding-inline: 2rem;
   margin: 0 auto;
 }
@@ -216,7 +222,6 @@ p{
   color: rgb(var(--color-primary-100));
   padding-block: 1rem;
 }
-
 
 //Specific
 
@@ -675,74 +680,203 @@ body:has(.main-header.nav-is-open) {
 .about {
   container: about / inline-size;
   ._col-1 {
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    gap:var(--space-8);
-    align-items:end;
-    >img{
-      grid-column:1;
-      grid-row: 1 ;
+    gap: var(--space-8);
+    align-items: end;
+    > img {
+      grid-column: 1;
+      grid-row: 1;
       max-width: 100%;
-      border-radius:var(--space-8);
+      border-radius: var(--space-8);
     }
-    >img:nth-of-type(2){
+    > img:nth-of-type(2) {
       grid-column: 2;
       grid-row: 1;
     }
   }
-  .__sport-icon{
+  .__sport-icon {
     grid-row: 2;
-    grid-column:1 / -1;
+    grid-column: 1 / -1;
     display: flex;
-    gap: var(--space-8) ;
+    gap: var(--space-8);
     align-items: center;
     justify-content: space-between;
     padding: var(--space-8);
-    img{
+    img {
       mix-blend-mode: multiply;
       max-width: 80px;
       width: 100%;
-    }    
+    }
   }
-  ._col-2{
+  ._col-2 {
     max-width: 691px;
     width: 100%;
   }
 }
 
 @media (min-width: 934px) {
-  .container{
-    display:flex;
+  .container {
+    display: flex;
     gap: var(--space-24);
-    justify-content:space-between
+    justify-content: space-between;
   }
-  .about{
-
-    ._col-1{
+  .about {
+    ._col-1 {
       max-width: 30dvw;
       align-items: stretch;
-      img{
+      img {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-    & > img:nth-of-type(1){
-      grid-column: 1;
-      grid-row: 1 / span 2;
-    }
-    & > img:nth-of-type(2){
-      grid-row: 2;
-    }
+      & > img:nth-of-type(1) {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+      & > img:nth-of-type(2) {
+        grid-row: 2;
+      }
 
-    .__sport-icon{
-      grid-column:2 ;
-      grid-row: 1;
+      .__sport-icon {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+    ._col-2 {
+      height: 100%;
+      align-self: flex-end;
+      max-width: 500px;
     }
   }
-    ._col-2{
-      height: 100%;
-      align-self:flex-end;
+}
+
+//Plan d'entrainement section
+section.plan {
+  ._col-1 {
+    background-image: url(/_public/media/Images/Start/Pan/basketball-field.jpg);
+    background-position: left center;
+    padding-block: 100px;
+  }
+}
+.card-container {
+  max-width: 90%;
+  margin-inline: auto;
+  .__date-container {
+    background-color: (rgb(var(--color-smoke-200)));
+    padding: var(--space-4);
+    border-radius: var(--space-8) var(--space-8) 0 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    max-width: 85%;
+    margin-inline: auto;
+    .date {
+      font-weight: bolder;
+    }
+  }
+  ._card-title {
+    position: relative;
+    padding-block-end: var(--space-16);
+    ._card-title-container {
+      z-index: 10;
+      background-color: white;
+      padding: var(--space-8) var(--space-24);
+      border-radius: var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      max-width: 90%;
+      margin-inline: auto;
+    }
+    .icon {
+      width: 60px;
+      border-radius: 50%;
+      img {
+        width: 100%;
+      }
+    }
+    .text {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: rgb(var(--color-primary-100));
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: rgb(var(--color-light-100));
+      width: 100%;
+      height: 50%;
+      bottom: 0;
+      z-index: 0;
+      border-radius: var(--space-8) var(--space-8) 0 0;
+    }
+  }
+  .card-body {
+    background-color: rgb(var(--color-light-100));
+    padding:0 1rem 1rem 1rem;
+    border-radius:0 0 var(--space-8) var(--space-8);
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--space-8);
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-8) var(--space-16);
+      background-color: white;
+      border-radius: var(--space-8);
+      border: 2px dotted rgb(var(--color-smoke-200));
+      h4 {
+        width: 60px;
+        height: 60px;
+        background-color: rgb(var(--color-dark-100));
+        color: rgb(var(--color-light-100));
+        border-radius: 50%;
+        place-content: center;
+        text-align: center;
+        letter-spacing: 2px;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        li {
+          font-size: 14px;
+          background-color: rgba(var(--color-primary-100),.5);
+          color: rgba(var(--color-dark-100), 0.7);
+          height: 35px;
+          width: 35px;
+          text-align: center;
+          place-content: center;
+          border-radius: 50%;
+          font-weight: 400;
+          &.active{
+            background-color: rgb(var(--color-primary-100));
+            color: rgb(var(--color-light-100));
+          }
+        }
+      }
+      .times {
+        display: flex;
+        gap: var(--space-4);
+        align-items: center;
+        svg {
+          display: block;
+          width: 20px;
+          height: 20px;
+        }
+        .time-start-end {
+          time {
+            display: block;
+          }
+        }
+      }
     }
   }
 }
