@@ -239,16 +239,16 @@
       <section class="plan">
         <header class="section-header">
           <div class="container"><h2>Plan d'entraînement</h2></div>
-          <div class="switcher-container">
-            <label for="basketball" class="_switcher-val-1" tabindex="0">
+          <div class="switcher-container switcher-container-plans">
+            <label for="basketball-grps" class="_switcher-val-1" tabindex="0">
               <input
                 type="radio"
-                name="sport"
-                id="basketball"
-                groupe="sportart"
+                name="sport-grps"
+                id="basketball-grps"
+                groupe="sportart-grps"
                 checked
               />
-              <span >Basketball</span>
+              <span>Basketball</span>
             </label>
             <button
               class="custom-switcher"
@@ -258,19 +258,19 @@
                 >Switch entre le basketball et le football</span
               >
             </button>
-            <label for="football" class="_switcher-val-2" tabindex="0">
+            <label for="football-grps" class="_switcher-val-2" tabindex="0">
               <input
                 type="radio"
-                name="sport"
-                id="football"
-                groupe="sportart"
+                name="sport-grps"
+                id="football-grps"
+                groupe="sportart-grps"
               />
-              <span >Football</span>
+              <span>Football</span>
             </label>
           </div>
         </header>
         <!--The Col-1 and 2 need to have a full with background image on mobile view and 50dvw bg  side by side on larger screens -->
-        <div class="_plans-container switched-contents">
+        <div class="_plans-container switched-contents switched-contents-plans">
           <div class="_col-1 switch-content-1" aria-current="true">
             <article
               class="card-container"
@@ -295,7 +295,7 @@
               </header>
               <div class="card-body">
                 <section aria-label="Plan d'entraînement pour le Samedi">
-                    <h4><span class="text">Sam</span></h4>
+                  <h4><span class="text">Sam</span></h4>
                   <ul class aria-label="Liste des groupes">
                     <li class="active">U9</li>
                     <li class="active">U13</li>
@@ -437,7 +437,198 @@
           </div>
         </div>
       </section>
-      <section class="groupes"></section>
+      <section class="groupes">
+        <header class="section-header">
+          <div class="container">
+            <h2>Les Groupes</h2>
+          </div>
+          <div class="switcher-container switcher-container-groupes">
+            <label for="basketball" class="_switcher-val-1" tabindex="0">
+              <input
+                type="radio"
+                name="sport"
+                id="basketball"
+                groupe="sportart"
+                checked
+              />
+              <span>Basketball</span>
+            </label>
+            <button
+              class="custom-switcher"
+              aria-describedby="switch-description"
+            >
+              <span class="sr-only" id="switch-description"
+                >Switch entre le basketball et le football</span
+              >
+            </button>
+            <label for="football" class="_switcher-val-2" tabindex="0">
+              <input
+                type="radio"
+                name="sport"
+                id="football"
+                groupe="sportart"
+              />
+              <span>Football</span>
+            </label>
+          </div>
+        </header>
+        <div class="switched-contents switched-contents-groupes">
+          <div class="_col-1 switch-content-1" aria-current="true">
+            <article class="card-container">
+              <header>
+                <img
+                  src="./_public/media/Images/Start/About/KidBasket.jpg"
+                  alt=""
+                />
+                <div class="card_title">
+                  <h3><span>Groupe: </span> <span>U9</span></h3>
+                  <p>De 5 à 9ans</p>
+                </div>
+              </header>
+              <div class="card-body">
+                <p>
+                  Le groupe U9 s’adresse aux jeunes joueurs et joueuses âgés de
+                  5 à 9 ans souhaitant découvrir le basketball dans une ambiance
+                  conviviale et ludique. À travers des jeux, des exercices
+                  simples et des mini-matchs, les enfants développent leurs
+                  premières notions de dribble, de passe et de tir tout en
+                  apprenant les valeurs essentielles du sport : respect, esprit
+                  d’équipe et plaisir de jouer. Encadrés par des entraîneurs
+                  bienveillants, les U9 progressent à leur rythme et vivent
+                  leurs premières émotions sur le terrain.
+                </p>
+              </div>
+              <div class="card-footer _content-call">
+                <a href="#" class="btn-call">
+                  <span class="icon">
+                    <img
+                      src="./_public/media/Icons/plus-solid-full.svg"
+                      alt=""
+                    />
+                  </span>
+                  <span class="text"> Inscription </span>
+                </a>
+              </div>
+            </article>
+            <article class="card-container">
+              <header>
+                <img
+                  src="./_public/media/Images/Start/About/KidBasket.jpg"
+                  alt=""
+                />
+                <div class="card_title">
+                  <h3><span>Groupe: </span> <span>U13</span></h3>
+                  <p>De 10 à 13ans</p>
+                </div>
+              </header>
+              <div class="card-body">
+                <p>
+                  Le groupe U13 s’adresse aux jeunes de 10 à 13 ans passionnés
+                  de basketball et désireux d’approfondir leur apprentissage du
+                  jeu. Les entraînements visent à renforcer les fondamentaux
+                  techniques comme le dribble, la passe et le tir, tout en
+                  développant la vision collective et la compréhension tactique.
+                  Les séances alternent travail individuel, exercices en équipe
+                  et mini-matchs pour favoriser la progression et le plaisir de
+                  jouer. Les jeunes participent également à leurs premières
+                  compétitions officielles, dans un esprit de fair-play et de
+                  cohésion. Un encadrement attentif les aide à grandir
+                  sportivement et humainement.
+                </p>
+              </div>
+              <div class="card-footer _content-call">
+                <a href="#" class="btn-call">
+                  <span class="icon">
+                    <img
+                      src="./_public/media/Icons/plus-solid-full.svg"
+                      alt=""
+                    />
+                  </span>
+                  <span class="text"> Inscription </span>
+                </a>
+              </div>
+            </article>
+            <article class="card-container">
+              <header>
+                <img
+                  src="./_public/media/Images/Start/About/KidBasket.jpg"
+                  alt=""
+                />
+                <div class="card_title">
+                  <h3><span>Groupe: </span> <span>U15</span></h3>
+                  <p>De 14 à 15ans</p>
+                </div>
+              </header>
+              <div class="card-body">
+                <p>
+                  Le groupe U15 regroupe les jeunes basketteuses et basketteurs
+                  de 13 à 15 ans, prêts à franchir un nouveau cap dans leur
+                  pratique du basketball. À cet âge, les joueurs perfectionnent
+                  leurs techniques individuelles (tir, dribble, défense) tout en
+                  intégrant des stratégies de jeu plus complexes. Les
+                  entraînements sont intenses et axés sur la préparation
+                  physique, la lecture du jeu et l’esprit d’équipe. Les U15
+                  participent à des compétitions plus soutenues, développant
+                  ainsi leur mentalité de compétiteur tout en restant attachés
+                  aux valeurs de respect et d’effort collectif. Une étape clé
+                  dans leur évolution sportive.
+                </p>
+              </div>
+              <div class="card-footer _content-call">
+                <a href="#" class="btn-call">
+                  <span class="icon">
+                    <img
+                      src="./_public/media/Icons/plus-solid-full.svg"
+                      alt=""
+                    />
+                  </span>
+                  <span class="text"> Inscription </span>
+                </a>
+              </div>
+            </article>
+          </div>
+          <div class="_col-2 switch-content-2" aria-current="false">
+            <article class="card-container">
+              <header>
+                <img
+                  src="./_public/media/Images/Start/About/KidBasket.jpg"
+                  alt=""
+                />
+                <div class="card_title">
+                  <h3><span>Groupe: </span> <span>U15</span></h3>
+                  <p>De 14 à 15ans</p>
+                </div>
+              </header>
+              <div class="card-body">
+                <p>
+                  Le groupe U15 regroupe les jeunes basketteuses et basketteurs
+                  de 13 à 15 ans, prêts à franchir un nouveau cap dans leur
+                  pratique du basketball. À cet âge, les joueurs perfectionnent
+                  leurs techniques individuelles (tir, dribble, défense) tout en
+                  intégrant des stratégies de jeu plus complexes. Les
+                  entraînements sont intenses et axés sur la préparation
+                  physique, la lecture du jeu et l’esprit d’équipe. Les U15
+                  participent à des compétitions plus soutenues, développant
+                  ainsi leur mentalité de compétiteur tout en restant attachés
+                  aux valeurs de respect et d’effort collectif. Une étape clé
+                  dans leur évolution sportive.
+                </p>
+              </div>
+              <div class="card-footer _content-call">
+                <a href="#" class="btn-call">
+                  <span class="icon">
+                    <img
+                      src="./_public/media/Icons/plus-solid-full.svg"
+                      alt=""
+                    />
+                  </span>
+                  <span class="text"> Inscription </span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
       <section class="galerie"></section>
     </main>
     <footer id="main-footer"></footer>
@@ -502,10 +693,16 @@
         });
       };
 
-      //Basketball Football
+      //Trainings Basketball Football
       switcherParent(
-        document.querySelector(".switcher-container"),
-        document.querySelector(".switched-contents"),
+        document.querySelector(".switcher-container-plans"),
+        document.querySelector(".switched-contents-plans"),
+        "football",
+      );
+      //Groupes
+      switcherParent(
+        document.querySelector(".switcher-container-groupes"),
+        document.querySelector(".switched-contents-groupes"),
         "football",
       );
 
