@@ -846,7 +846,7 @@ section.plan {
     transition: all var(--animation-long);
   }
   ._col-1{
-    background-image: url(/_public/media/Images/Start/Pan/basketball-field.jpg);
+    background-image: url(/_public/media/Images/Start/Plan/basketball-field.jpg);
     background-position: left center;
     &[aria-current="true"]{
       opacity: 1;
@@ -854,7 +854,7 @@ section.plan {
     }
   }
   ._col-2{
-    background-image: url(/_public/media/Images/Start/Pan/football-field.jpg);
+    background-image: url(/_public/media/Images/Start/Plan/football-field.jpg);
     background-position: right center;
     &[aria-current="true"]{
       opacity: 1;

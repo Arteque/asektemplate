@@ -880,7 +880,7 @@ section.plan ._col-1, section.plan ._col-2 {
   transition: all var(--animation-long);
 }
 section.plan ._col-1 {
-  background-image: url(/_public/media/Images/Start/Pan/basketball-field.jpg);
+  background-image: url(/_public/media/Images/Start/Plan/basketball-field.jpg);
   background-position: left center;
 }
 section.plan ._col-1[aria-current=true] {
@@ -888,7 +888,7 @@ section.plan ._col-1[aria-current=true] {
   pointer-events: all;
 }
 section.plan ._col-2 {
-  background-image: url(/_public/media/Images/Start/Pan/football-field.jpg);
+  background-image: url(/_public/media/Images/Start/Plan/football-field.jpg);
   background-position: right center;
 }
 section.plan ._col-2[aria-current=true] {
