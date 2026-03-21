@@ -576,6 +576,15 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
   min-height: 80dvh;
   gap: var(--space-24);
 }
+.hero ._col-1 img,
+.hero ._col-3 img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: bottom;
+     object-position: bottom;
+}
 .hero ._col-1 {
   grid-row: 1;
   grid-column: 1/-1;
@@ -587,8 +596,6 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
   left: 50%;
   bottom: 0;
   max-width: unset;
-  width: auto;
-  height: 100%;
   clip-path: rect(0 52% 100% 0);
   -webkit-transform: translateX(-52%);
           transform: translateX(-52%);
@@ -610,7 +617,6 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
   left: 50%;
   bottom: 0;
   max-width: unset;
-  height: 100%;
   clip-path: rect(0 100% 100% 55%);
   -webkit-transform: translateX(-52%);
           transform: translateX(-52%);
@@ -632,6 +638,10 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   gap: var(--space-16);
   padding-block: var(--space-16);
   display: flex;
@@ -892,7 +902,8 @@ section.plan ._plans-container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: unset;
   }
-  section.plan ._plans-container ._col-1[aria-current], section.plan ._plans-container ._col-2[aria-current] {
+  section.plan ._plans-container ._col-1[aria-current],
+  section.plan ._plans-container ._col-2[aria-current] {
     opacity: 1;
     pointer-events: all;
   }

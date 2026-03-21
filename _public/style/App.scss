@@ -573,6 +573,13 @@ body:has(.main-header.nav-is-open) {
     min-height: 80dvh;
     gap: var(--space-24);
   }
+  ._col-1 img,
+  ._col-3 img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: bottom;
+  }
   ._col-1 {
     grid-row: 1;
     grid-column: 1 / -1;
@@ -583,8 +590,6 @@ body:has(.main-header.nav-is-open) {
       left: 50%;
       bottom: 0;
       max-width: unset;
-      width: auto;
-      height: 100%;
       clip-path: rect(0 52% 100% 0);
       transform: translateX(-52%);
     }
@@ -605,7 +610,6 @@ body:has(.main-header.nav-is-open) {
       left: 50%;
       bottom: 0;
       max-width: unset;
-      height: 100%;
       clip-path: rect(0 100% 100% 55%);
       transform: translateX(-52%);
     }
@@ -625,6 +629,7 @@ body:has(.main-header.nav-is-open) {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: row wrap;
   gap: var(--space-16);
   padding-block: var(--space-16);
   display: flex;
@@ -842,25 +847,26 @@ section.plan {
       width: 100%;
     }
     @media (min-width: 68.75rem) {
-     .switcher-container{
-      display:none;
-     }
+      .switcher-container {
+        display: none;
+      }
     }
   }
   ._plans-container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    @media ( min-width: 68.75rem) {
+    @media (min-width: 68.75rem) {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: unset;
-      ._col-1, ._col-2 {
-        &[aria-current]{
+      ._col-1,
+      ._col-2 {
+        &[aria-current] {
           opacity: 1;
           pointer-events: all;
         }
       }
-      ._col-2{
+      ._col-2 {
         grid-column: 2;
       }
     }
