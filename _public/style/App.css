@@ -1095,6 +1095,12 @@ section.groupes .section-header {
   z-index: 100;
   background-color: rgb(var(--color-smoke-100));
 }
+@media (min-width: 950px) {
+  section.groupes ._col-1 {
+    display: Flex;
+    gap: var(--space-16);
+  }
+}
 section.groupes .card-container {
   max-width: 548px;
   width: 90%;

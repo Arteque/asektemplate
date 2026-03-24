@@ -1022,71 +1022,77 @@ section.plan {
 
 // Groupes Section
 
-section{
-  &.groupes{
-    .section-header{
-      position:sticky;
+section {
+  &.groupes {
+    .section-header {
+      position: sticky;
       top: 0;
       z-index: 100;
       background-color: rgb(var(--color-smoke-100));
     }
-    .card-container{
+    @media (min-width: 950px) {
+      ._col-1 {
+        display: Flex;
+        gap: var(--space-16);
+      }
+    }
+    .card-container {
       max-width: 548px;
       width: 90%;
-      header{
+      header {
         padding-inline: var(--space-16);
         position: relative;
-        &::before{
-          content:"";
+        &::before {
+          content: "";
           position: absolute;
           top: 65px;
           left: 0;
           right: 0;
           bottom: 0;
           background-color: rgb(var(--color-secondary-100));
-          border-radius:var(--space-8);
+          border-radius: var(--space-8);
           z-index: 0;
         }
-        img{
+        img {
           width: 100%;
-          max-width:unset;
+          max-width: unset;
           border-radius: var(--space-8);
           z-index: 10;
           position: relative;
-          padding:var(--space-8);
-          background-color:rgb(var(--color-smoke-100));
+          padding: var(--space-8);
+          background-color: rgb(var(--color-smoke-100));
         }
       }
-      .card-title{
+      .card-title {
         position: relative;
         z-index: 10;
         display: flex;
         flex-flow: row wrap;
-        align-items:center;
+        align-items: center;
         justify-content: space-between;
-        h3{
+        h3 {
           color: rgb(var(--color-dark-100));
           padding: 0;
-          span{
-            &:first-of-type{
+          span {
+            &:first-of-type {
               font-size: 24px;
               font-weight: normal;
             }
-            &:nth-of-type(2){
+            &:nth-of-type(2) {
               font-weight: 900;
               font-size: 24px;
             }
           }
         }
-        p{
-          font-family:var(--title);
+        p {
+          font-family: var(--title);
           color: rgb(var(--color-dark-100));
           padding: 0;
           font-size: 24px;
         }
       }
-      .card-body{
-        background:transparent;
+      .card-body {
+        background: transparent;
         font-size: 16px;
         padding-block: 1rem;
       }
