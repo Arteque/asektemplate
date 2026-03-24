@@ -1098,6 +1098,9 @@ section.groupes .section-header {
 @media (min-width: 950px) {
   section.groupes ._col-1 {
     display: Flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     gap: var(--space-16);
   }
 }

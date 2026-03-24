@@ -1033,6 +1033,7 @@ section {
     @media (min-width: 950px) {
       ._col-1 {
         display: Flex;
+        justify-content: space-between;
         gap: var(--space-16);
       }
     }
