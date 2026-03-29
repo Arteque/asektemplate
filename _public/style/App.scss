@@ -12,12 +12,14 @@ $colors: (
     200: "220, 217, 199",
   ),
   primary: (
-    100: "219, 123, 27",
+    100:"230, 140, 51",
     200: "168, 90, 19",
+    300: "219, 123, 27",
   ),
   secondary: (
-    100: "0, 172, 238",
+    100: "0, 77, 107",
     200: "0, 121, 168",
+    300: "0, 172, 238",
   ),
   success: (
     100: "40, 167, 69",
@@ -210,16 +212,17 @@ p {
     padding-inline: var(--space-8);
     padding-block: 4px;
     border-radius: 0 4px 4px 0;
-    color: rgb(var(--color-light-100));
+    color: rgb(var(--color-dark-100));
+    font-size: larger;
     font-weight: 700;
     width: fit-content;
   }
 }
 
 .section-header {
-  font-size: 2rem;
+  font-size: 1.5rem;
   letter-spacing: 2px;
-  color: rgb(var(--color-primary-100));
+  color: rgb(var(--color-dark-100));
   padding-block: 1rem;
 }
 
@@ -319,7 +322,7 @@ p {
     padding-inline: 1rem;
     padding-block: 0.5rem;
     text-transform: uppercase;
-    color: rgb(var(--color-light-100));
+    color: rgb(var(--color-dark-100));
     font-weight: 900;
     font-size: 1rem;
     flex-grow: 0.2;
@@ -941,7 +944,7 @@ section.plan {
     .text {
       font-size: 1.5rem;
       font-weight: 900;
-      color: rgb(var(--color-primary-100));
+      color: rgb(var(--color-secondery-100));
       font-size: 32px;
       letter-spacing: 2px;
     }
@@ -1038,7 +1041,7 @@ section {
       }
     }
     .card-container {
-      max-width: 548px;
+      max-width: 500px;
       width: 90%;
       header {
         padding-inline: var(--space-16);

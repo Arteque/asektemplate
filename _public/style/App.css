@@ -14,10 +14,12 @@
   --color-light-200: 201, 201, 201;
   --color-smoke-100: 238, 237, 220;
   --color-smoke-200: 220, 217, 199;
-  --color-primary-100: 219, 123, 27;
+  --color-primary-100: 230, 140, 51;
   --color-primary-200: 168, 90, 19;
-  --color-secondary-100: 0, 172, 238;
+  --color-primary-300: 219, 123, 27;
+  --color-secondary-100: 0, 77, 107;
   --color-secondary-200: 0, 121, 168;
+  --color-secondary-300: 0, 172, 238;
   --color-success-100: 40, 167, 69;
   --color-success-200: 30, 108, 52;
   --color-danger-100: 220, 53, 69;
@@ -184,7 +186,8 @@ p {
   padding-inline: var(--space-8);
   padding-block: 4px;
   border-radius: 0 4px 4px 0;
-  color: rgb(var(--color-light-100));
+  color: rgb(var(--color-dark-100));
+  font-size: larger;
   font-weight: 700;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -192,9 +195,9 @@ p {
 }
 
 .section-header {
-  font-size: 2rem;
+  font-size: 1.5rem;
   letter-spacing: 2px;
-  color: rgb(var(--color-primary-100));
+  color: rgb(var(--color-dark-100));
   padding-block: 1rem;
 }
 
@@ -302,7 +305,7 @@ p {
   padding-inline: 1rem;
   padding-block: 0.5rem;
   text-transform: uppercase;
-  color: rgb(var(--color-light-100));
+  color: rgb(var(--color-dark-100));
   font-weight: 900;
   font-size: 1rem;
   -webkit-box-flex: 0.2;
@@ -995,7 +998,7 @@ section.plan ._col-2[aria-current=true] {
 .card-container ._card-title .text {
   font-size: 1.5rem;
   font-weight: 900;
-  color: rgb(var(--color-primary-100));
+  color: rgb(var(--color-secondery-100));
   font-size: 32px;
   letter-spacing: 2px;
 }
@@ -1105,7 +1108,7 @@ section.groupes .section-header {
   }
 }
 section.groupes .card-container {
-  max-width: 548px;
+  max-width: 500px;
   width: 90%;
 }
 section.groupes .card-container header {
