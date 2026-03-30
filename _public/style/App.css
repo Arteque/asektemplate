@@ -1552,24 +1552,6 @@ section.galerie .lightbox .lightbox-counter {
   white-space: nowrap;
 }
 
-#main-footer .footer-hero {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-@media (min-width: 769px) {
-  #main-footer .footer-hero {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    min-height: 420px;
-  }
-}
 #main-footer .footer-contact-card {
   background-color: rgb(var(--color-smoke-100));
   display: -webkit-box;
@@ -1585,11 +1567,15 @@ section.galerie .lightbox .lightbox-counter {
   gap: var(--space-16);
   padding: var(--space-32) var(--space-24);
   z-index: 10;
+  border-radius: var(--space-8);
 }
 @media (min-width: 769px) {
   #main-footer .footer-contact-card {
-    width: 320px;
-    min-width: 280px;
+    max-width: 550px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    min-width: 400px;
     -ms-flex-negative: 0;
         flex-shrink: 0;
     -webkit-box-shadow: 4px 0 24px rgba(0, 0, 0, 0.18);
@@ -1689,6 +1675,7 @@ section.galerie .lightbox .lightbox-counter {
           flex: 1;
   min-height: 300px;
   overflow: hidden;
+  position: relative;
 }
 #main-footer .footer-map iframe {
   display: block;
@@ -1696,10 +1683,19 @@ section.galerie .lightbox .lightbox-counter {
   height: 100%;
   min-height: 300px;
   border: 0;
+  position: absolute;
+  inset: 0;
+  height: 90%;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 #main-footer .footer-nav-bar {
   background-color: rgb(var(--color-secondary-100));
-  padding-block: var(--space-16);
+  padding-block: calc(var(--space-32) * 2) var(--space-16);
+  -webkit-transform: translateY(-35%);
+          transform: translateY(-35%);
 }
 #main-footer .footer-nav-bar .container {
   display: -webkit-box;
