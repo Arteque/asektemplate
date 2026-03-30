@@ -12,7 +12,7 @@ $colors: (
     200: "220, 217, 199",
   ),
   primary: (
-    100:"230, 140, 51",
+    100: "230, 140, 51",
     200: "168, 90, 19",
     300: "219, 123, 27",
   ),
@@ -183,30 +183,30 @@ p {
   border-width: 0;
 }
 
-.custom-arrow-dot{
-  position:relative;
+.custom-arrow-dot {
+  position: relative;
   max-width: 80px;
   width: 50%;
-  &::before{
-    content:"";
-    position:absolute;
-    height:3px;
-    left:0;
-    right:0;
-    top:50%;
-    transform:translateY(-50%);
+  &::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: rgb(var(--color-dark-100));
   }
-  &::after{
-    content:"";
-    position:absolute;
-    height:10px;
-    width:10px;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 10px;
     background-color: rgb(var(--color-dark-100));
-    border-radius:50%;
-    right:0;
-    top:50%;
-    transform:translateY(-50%);
+    border-radius: 50%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -328,7 +328,9 @@ p {
   display: grid;
   place-items: center;
   background-color: rgb(var(--color-smoke-100));
-  transition: opacity var(--animation-mid), visibility var(--animation-mid);
+  transition:
+    opacity var(--animation-mid),
+    visibility var(--animation-mid);
 
   &.is-hidden {
     opacity: 0;
@@ -593,6 +595,7 @@ body:has(.main-header.nav-is-open) {
     pointer-events: none;
   }
   .main-header {
+    border: unset;
     .logo {
       display: block;
       width: fit-content;
@@ -907,12 +910,12 @@ body:has(.main-header.nav-is-open) {
 }
 
 @media (min-width: 934px) {
-  .container {
-    display: flex;
-    gap: var(--space-24);
-    justify-content: space-between;
-  }
   .about {
+    .container {
+      display: flex;
+      gap: var(--space-24);
+      justify-content: space-between;
+    }
     ._col-1 {
       max-width: 30dvw;
       align-items: stretch;
@@ -1186,13 +1189,13 @@ section {
         z-index: 10;
         h3 {
           color: rgb(var(--color-light-100));
-          width:100%;
+          width: 100%;
           letter-spacing: 2px;
           padding-block: var(--space-16);
-          display:flex;
-          flex-flow:row wrap;
-          align-items:center;
-          justify-content:space-between;
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+          justify-content: space-between;
           span {
             &:first-of-type {
               font-size: 24px;
@@ -1578,8 +1581,6 @@ section.galerie {
 #main-footer {
   // ── Map + Contact card row ────────────────────────────────────────
 
-  
-
   .footer-contact-card {
     background-color: rgb(var(--color-smoke-100));
     display: flex;
@@ -1588,8 +1589,9 @@ section.galerie {
     gap: var(--space-16);
     padding: var(--space-32) var(--space-24);
     z-index: 10;
-    border-radius:var(--space-8);
-
+    border-radius: var(--space-8);
+    z-index: 100;
+    position: relative;
     @media (min-width: 769px) {
       max-width: 550px;
       width: -webkit-fit-content;
@@ -1689,7 +1691,7 @@ section.galerie {
     flex: 1;
     min-height: 300px;
     overflow: hidden;
-    position:relative;
+    position: relative;
 
     iframe {
       display: block;
@@ -1697,10 +1699,10 @@ section.galerie {
       height: 100%;
       min-height: 300px;
       border: 0;
-      position:absolute;
+      position: absolute;
       inset: 0;
       height: 90%;
-      width:100%;
+      width: 100%;
       top: 50%;
       transform: translateY(-50%);
     }
@@ -1710,8 +1712,8 @@ section.galerie {
 
   .footer-nav-bar {
     background-color: rgb(var(--color-secondary-100));
-    padding-block:calc(var(--space-32) *2) var(--space-16);
-    transform:translateY(-35%);
+    padding-block: calc(var(--space-32) * 2) var(--space-16);
+    transform: translateY(-35%);
 
     .container {
       display: flex;
@@ -1792,6 +1794,86 @@ section.galerie {
       font-size: 0.8rem;
       color: rgba(var(--color-dark-200), 0.6);
       padding: 0;
+    }
+  }
+}
+
+// ── Subpage ──────────────────────────────────────────────────
+// ── Subpage --- Hero Section ──────────────────────────────────────────────────
+
+.subpage {
+  .page-hero-section {
+    position: relative;
+    &#page-hero-section {
+      margin-block-start: 0;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(var(--color-primary-300), 0.9);
+      z-index: 0;
+    }
+    .container {
+      z-index: 100;
+      position: relative;
+      min-height: 197px;
+      place-items: center;
+      place-content: center;
+      ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: fit-content;
+        padding-block: 1rem;
+        li {
+          padding-inline-end: 20px;
+          padding-inline-start: var(--space-16);
+          position: relative;
+          text-transform: uppercase;
+          font-weight: 700;
+          &::before {
+            content: "";
+            position: absolute;
+            height: 3px;
+            width: 15px;
+            right: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgb(var(--color-light-100));
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            height: 0.5rem;
+            width: 0.5rem;
+            right: -10px;
+            background-color: rgb(var(--color-light-100));
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          &:first-of-type {
+            list-style: circle;
+            padding-inline-start: unset;
+            &::marker {
+              color: rgb(var(--color-light-100));
+            }
+          }
+          &:last-of-type {
+            padding-inline-end: 0;
+            pointer-events: none;
+            color: rgb(var(--color-light-100));
+          }
+          &:last-of-type::after,
+          &:last-of-type::before {
+            display: none;
+          }
+        }
+      }
     }
   }
 }

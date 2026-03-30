@@ -1,3 +1,22 @@
+/**
+
+ * 1. Back to Top       – Shows or hides the "back to top" button based on the
+ *                        visibility of the hero section (via IntersectionObserver)
+ *                        or the window scroll position. Scrolls smoothly to the
+ *                        top and returns keyboard focus to the first focusable
+ *                        element when clicked.
+ *
+ * 2. Page Loader       – Hides the full-page loading overlay once all assets have
+ *                        finished loading, then removes it from the DOM after its
+ *                        CSS transition completes.
+ *
+ * 3. Galerie Lightbox  – Keyboard- and pointer-accessible image lightbox for the
+ *                        gallery grid. Supports forward/backward navigation,
+ *                        arrow-key controls, backdrop-click to close, and
+ *                        automatically closes when the viewport is resized below
+ *                        the mobile breakpoint (968 px).
+ */
+
 // Back to top
 (function () {
   const btn = document.getElementById("back-to-top");

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -12,14 +12,19 @@
     />
     <title>ASEK | À propos</title>
   </head>
-  <body>
+  <body class="subpage subpage-apropos subpage-w-aside">
     <h1 class="sr-only">
       ASEK | Association Sportive Élite Kénitra pour le basketball et le
       football
     </h1>
+    <a href="#main-content" class="sr-only" tabindex="0">Contenu principal</a>
     <header id="main-header" class="main-header">
       <div class="container">
-        <a href="index.html" class="logo" title="Association sportive élite kénitra">
+        <a
+          href="index.html"
+          class="logo"
+          title="Association sportive élite kénitra"
+        >
           <img
             src="./_public/media/Logos/ASEK_Global_Logo.svg"
             alt="Association Sportive Élite Kénitra Logo"
@@ -78,7 +83,11 @@
             </button>
             <ul class="_nav-list">
               <li><a href="index.html">Accueil</a></li>
-              <li><a href="apropos.html" class="current" aria-current="true">À propos</a></li>
+              <li>
+                <a href="apropos.html" class="current" aria-current="true"
+                  >À propos</a
+                >
+              </li>
               <li><a href="#">Actualités</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
@@ -87,7 +96,25 @@
         <a href="#" class="header-nav-call">inscription</a>
       </div>
     </header>
-    <main></main>
+    <main id="main-content">
+      <section
+        id="page-hero-section"
+        class="page-hero-section"
+        style="
+          background-image: url(./_public/media/Images/Subpages/Basketball_Players_Action.png);
+          background-position: center;
+          background-repeat: no-repeat;
+        "
+      >
+        <div class="container">
+          <h2>À propos de l'ASEK</h2>
+          <ul class="breadcrumb">
+            <li class="start-page"><a href="index.html">Accueil</a></li>
+            <li aria-current="page">À propos</li>
+          </ul>
+        </div>
+      </section>
+    </main>
     <footer id="main-footer" role="contentinfo">
       <!-- ── Map + Contact card ─────────────────────────────── -->
       <div
@@ -248,10 +275,26 @@
 
       <!-- ── Copyright ───────────────────────────────────────── -->
       <div class="footer-bottom">
-        <p>© 2025 Association Sportive Élite Kénitra — Tous droits réservés. By <a href="https://www.lemssiah.com" target="_blank" rel="noopener noreferrer" title="Site web Ahmed Lemssiah dévelppeur et designeur web">Ahmed Lemssiah</a></p>
+        <p>
+          © 2025 Association Sportive Élite Kénitra — Tous droits réservés. By
+          <a
+            href="https://www.lemssiah.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Site web Ahmed Lemssiah dévelppeur et designeur web"
+            >Ahmed Lemssiah</a
+          >
+        </p>
       </div>
     </footer>
-
+    <div
+      id="page-loader"
+      class="page-loader"
+      aria-hidden="true"
+      aria-label="Chargement en cours"
+    >
+      <span class="page-loader__spinner"></span>
+    </div>
     <button
       id="back-to-top"
       class="back-to-top"
@@ -357,5 +400,5 @@
         date.textContent = today.toLocaleDateString(lang, options);
       });
     </script>
-</body>
+  </body>
 </html>
