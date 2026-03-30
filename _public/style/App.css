@@ -301,6 +301,94 @@ p {
   left: calc(100% - 22px);
 }
 
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background-color: rgb(var(--color-smoke-100));
+  -webkit-transition: opacity var(--animation-mid), visibility var(--animation-mid);
+  transition: opacity var(--animation-mid), visibility var(--animation-mid);
+}
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.page-loader__spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 5px solid rgb(var(--color-smoke-200));
+  border-top-color: rgb(var(--color-primary-100));
+  border-right-color: rgb(var(--color-secondary-100));
+  -webkit-animation: loader-spin 0.9s linear infinite;
+          animation: loader-spin 0.9s linear infinite;
+}
+
+@-webkit-keyframes loader-spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-spin {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-loader__spinner {
+    -webkit-animation: none;
+            animation: none;
+    border-top-color: rgb(var(--color-primary-100));
+  }
+}
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 998;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgb(var(--color-primary-100));
+  color: rgb(var(--color-smoke-100));
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  -webkit-transform: translateY(1rem);
+          transform: translateY(1rem);
+  -webkit-transition: opacity var(--animation-short), visibility var(--animation-short), background-color var(--animation-short), -webkit-transform var(--animation-short);
+  transition: opacity var(--animation-short), visibility var(--animation-short), background-color var(--animation-short), -webkit-transform var(--animation-short);
+  transition: opacity var(--animation-short), visibility var(--animation-short), transform var(--animation-short), background-color var(--animation-short);
+  transition: opacity var(--animation-short), visibility var(--animation-short), transform var(--animation-short), background-color var(--animation-short), -webkit-transform var(--animation-short);
+}
+.back-to-top svg {
+  width: 22px;
+  height: 22px;
+  max-width: unset;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.back-to-top:hover {
+  background-color: rgb(var(--color-primary-200));
+}
+.back-to-top:focus-visible {
+  outline: 3px solid rgb(var(--color-secondary-100));
+  outline-offset: 3px;
+}
+
 .main-header {
   position: relative;
   z-index: 999;

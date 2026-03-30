@@ -13,6 +13,9 @@
     <title>ASEK | Accueil</title>
   </head>
   <body>
+    <div id="page-loader" class="page-loader" aria-hidden="true" aria-label="Chargement en cours">
+      <span class="page-loader__spinner"></span>
+    </div>
     <h1 class="sr-only">
       ASEK | Association Sportive Élite Kénitra pour le basketball et le
       football
@@ -23,6 +26,7 @@
           <img
             src="./_public/media/Logos/ASEK_Global_Logo.svg"
             alt="Association Sportive Élite Kénitra Logo"
+            loading="lazy"
           />
         </a>
         <div class="mid-col">
@@ -76,9 +80,9 @@
               <span></span>
               <span></span>
             </button>
-            <ul class="_nav-list">
-              <li><a href="#" class="current">Accueil</a></li>
-              <li><a href="#">À propos</a></li>
+            <ul class="_nav-list">  
+              <li><a href="index.html" class="current" aria-current="true">Accueil</a></li>
+              <li><a href="apropos.html">À propos</a></li>
               <li><a href="#">Actualités</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
@@ -202,15 +206,17 @@
             <img
               src="./_public/media/Images/Start/About/trainer_w_basketball.jpg"
               alt="Entraîneur de basketball avec un ballon de basketball"
+              loading="lazy"
             />
             <img
               src="./_public/media/Images/Start/About/KidBasket.jpg"
               alt="Un garçon tenant un ballon de basketball"
+              loading="lazy"
             />
             <div class="__sport-icon" aria-hidden="true">
-              <img src="./_public/media/Icons/envato/08.gif" alt="" />
-              <img src="./_public/media/Icons/envato/53.gif" alt="" />
-              <img src="./_public/media/Icons/envato/23.gif" alt="" />
+              <img src="./_public/media/Icons/envato/08.gif" alt="" loading="lazy" />
+              <img src="./_public/media/Icons/envato/53.gif" alt="" loading="lazy" />
+              <img src="./_public/media/Icons/envato/23.gif" alt="" loading="lazy" />
             </div>
           </div>
           <div class="_col-2">
@@ -287,6 +293,7 @@
                       <img
                         src="./_public/media/Icons/basketball-icon.png"
                         alt="Ballon de basketball en 3D"
+                        loading="lazy"
                       />
                     </span>
                     <span class="text">basketball</span>
@@ -371,6 +378,7 @@
                       <img
                         src="./_public/media/Icons/football-icon.png"
                         alt="Ballon de basketball en 3D"
+                        loading="lazy"
                       />
                     </span>
                     <span class="text">football</span>
@@ -453,6 +461,7 @@
               <img
                 src="./_public/media/Images/Start/Groupes/U9_Cardbg.jpg"
                 alt=""
+                loading="lazy"
               />
               <div class="card-title">
                 <h3><span>Groupe: <strong>U9</strong></span> <span>De 5 à 9ans</span></h3>
@@ -478,6 +487,7 @@
               <img
                 src="./_public/media/Images/Start/Groupes/U13_Cardbg.jpg"
                 alt=""
+                loading="lazy"
               />
               <div class="card-title">
                 <h3><span>Groupe: <strong>U13</strong></span> <span>De 10 à 13ans</span></h3>
@@ -505,6 +515,7 @@
               <img
                 src="./_public/media/Images/Start/Groupes/U15_Cardbg.jpg"
                 alt=""
+                loading="lazy"
               />
               <div class="card-title">
                 <h3><span>Groupe: <strong>U15</strong></span> <span>De 14 à 15ans</span></h3>
@@ -588,6 +599,7 @@
               <img
                 src="./_public/media/Logos/ASEK_Global_Logo.svg"
                 alt="Logo ASEK Basketball"
+                loading="lazy"
               />
             </li>
             <li class="mosaic-cell cell-photo">
@@ -704,6 +716,7 @@
               <img
                 src="./_public/media/Logos/ASEK_Global_Logo.svg"
                 alt="Logo Association Sportive Élite Kénitra"
+                loading="lazy"
               />
             </div>
             <p class="footer-card-name">Association Sportive Élite Kénitra</p>
@@ -851,6 +864,28 @@
         <p>© 2025 Association Sportive Élite Kénitra — Tous droits réservés. By <a href="https://www.lemssiah.com" target="_blank" rel="noopener noreferrer" title="Site web Ahmed Lemssiah dévelppeur et designeur web">Ahmed Lemssiah</a></p>
       </div>
     </footer>
+
+    <button
+      id="back-to-top"
+      class="back-to-top"
+      aria-label="Retourner en haut de la page"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
 
     <script src="./_public/script/App.js"></script>
 
