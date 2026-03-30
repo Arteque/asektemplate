@@ -150,6 +150,35 @@ p {
   border-width: 0;
 }
 
+.custom-arrow-dot {
+  position: relative;
+  max-width: 80px;
+  width: 50%;
+}
+.custom-arrow-dot::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: rgb(var(--color-dark-100));
+}
+.custom-arrow-dot::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background-color: rgb(var(--color-dark-100));
+  border-radius: 50%;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 .icon svg {
   width: 2rem;
   height: auto;
@@ -1138,6 +1167,12 @@ section.groupes .card-container header img {
 section.groupes .card-container .card-title {
   position: relative;
   z-index: 10;
+}
+section.groupes .card-container .card-title h3 {
+  color: rgb(var(--color-light-100));
+  width: 100%;
+  letter-spacing: 2px;
+  padding-block: var(--space-16);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1152,17 +1187,13 @@ section.groupes .card-container .card-title {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-section.groupes .card-container .card-title h3 {
-  color: rgb(var(--color-dark-100));
-  padding: 0;
-}
 section.groupes .card-container .card-title h3 span:first-of-type {
   font-size: 24px;
   font-weight: normal;
 }
 section.groupes .card-container .card-title h3 span:nth-of-type(2) {
-  font-weight: 900;
-  font-size: 24px;
+  font-weight: 400;
+  font-size: 16px;
 }
 section.groupes .card-container .card-title p {
   font-family: var(--title);
