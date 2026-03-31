@@ -2067,3 +2067,295 @@ section.galerie {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+// ── Price Section — Groupe et Modalité ─────────────────────────────────────
+// Switcher : MOIS / ANNÉE — toggles .price-monthly / .price-yearly spans
+// Desktop  : 3 cards centered in a flex row
+// Mobile   : x-scroll with scroll-snap
+
+.price-section {
+  background-color: rgb(var(--color-secondary-200));
+  padding-block-start: var(--space-32);
+  overflow: hidden;
+
+  > .container {
+    text-align: center;
+  }
+
+  .section-header {
+    color: white;
+    font-size: 2rem;
+    margin-block-end: var(--space-16);
+  }
+
+  .switcher-container {
+    justify-content: center;
+    margin-block-end: var(--space-32);
+
+    span {
+      color: white;
+    }
+
+    .custom-switcher {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+}
+
+.price-cards-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-16);
+  padding-block-end: var(--space-32);
+
+  @media (min-width: 68.75rem) {
+    overflow-x: visible;
+  }
+}
+
+.price-cards {
+  display: flex;
+  gap: var(--space-24);
+  align-items: center;
+  width: max-content;
+
+  @media (min-width: 68.75rem) {
+    width: auto;
+    justify-content: center;
+  }
+}
+
+.price-card {
+  background-color: white;
+  border-radius: var(--space-24);
+  padding: var(--space-24);
+  width: 280px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(var(--color-dark-200), 0.15);
+
+  @media (min-width: 68.75rem) {
+    width: 300px;
+    flex-shrink: unset;
+  }
+
+  // Featured / highlighted card (orange, centre position)
+  &--featured {
+    background-color: rgb(var(--color-primary-100));
+    padding-block-end: 0;
+    width: 300px;
+
+    @media (min-width: 68.75rem) {
+      width: 320px;
+      margin-block: -1.5rem; // extend vertically beyond sibling cards
+    }
+
+    .price-card__header {
+      .price-card__dot {
+        background-color: rgba(255, 255, 255, 0.25);
+        border: 2px solid white;
+      }
+
+      .price-card__name {
+        color: white;
+
+        span {
+          color: white;
+        }
+      }
+
+      .custom-arrow-dot {
+        &::before {
+          background-color: rgba(255, 255, 255, 0.55);
+        }
+
+        &::after {
+          background-color: rgba(255, 255, 255, 0.55);
+        }
+      }
+
+      .price-card__age {
+        color: rgba(255, 255, 255, 0.85);
+      }
+    }
+
+    .price-card__features li {
+      color: white;
+
+      &::before {
+        background-color: white;
+      }
+    }
+
+    // White arch at the bottom holds the price + CTA
+    .price-card__price-block {
+      background-color: white;
+      border-radius: 50% 50% 0 0 / 3rem 3rem 0 0;
+      padding: 3rem var(--space-24) var(--space-24);
+      margin-inline: calc(var(--space-24) * -1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-16);
+    }
+  }
+
+  // ── Card sub-elements ────────────────────────────────────────────
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+
+    .custom-arrow-dot {
+      flex: 1;
+      max-width: unset;
+      min-width: 20px;
+    }
+  }
+
+  &__dot {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(var(--color-dark-100));
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    font-family: var(--title);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    color: rgb(var(--color-dark-100));
+
+    span {
+      color: rgb(var(--color-secondary-100));
+    }
+  }
+
+  &__age {
+    font-size: 12px;
+    color: rgba(var(--color-dark-100), 0.6);
+    white-space: nowrap;
+  }
+
+  &__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    flex: 1;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-8);
+      font-size: 14px;
+      color: rgb(var(--color-dark-200));
+      padding: 0;
+
+      &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgb(var(--color-primary-100));
+        flex-shrink: 0;
+        margin-block-start: 4px;
+      }
+    }
+  }
+
+  &__price-block {
+    margin-block-start: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-16);
+  }
+
+  &__price {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    line-height: 1;
+  }
+
+  &__amount {
+    font-family: var(--title);
+    font-size: 4.5rem;
+    color: rgb(var(--color-primary-100));
+    line-height: 0.9;
+  }
+
+  &__unit {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgb(var(--color-primary-100));
+    padding-block-end: 0.3rem;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    background-color: rgb(var(--color-primary-100));
+    color: white;
+    padding: 0.6rem var(--space-24);
+    border-radius: var(--space-8);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background-color var(--animation-short);
+
+    &:hover {
+      background-color: rgb(var(--color-primary-200));
+    }
+
+    // Suppress the default "external link" ::after icon
+    &::after {
+      display: none;
+    }
+
+    .icon svg {
+      width: 14px;
+      height: 14px;
+      max-width: unset;
+      fill: white;
+    }
+  }
+}
+
+// Toggle visibility of monthly vs yearly price spans
+.price-cards {
+  .price-yearly {
+    display: none;
+  }
+
+  .price-monthly {
+    display: inline;
+  }
+
+  &.is-yearly {
+    .price-yearly {
+      display: inline;
+    }
+
+    .price-monthly {
+      display: none;
+    }
+  }
+}
