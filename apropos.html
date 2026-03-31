@@ -114,6 +114,169 @@
           </ul>
         </div>
       </section>
+
+      <!-- ── Main content: 2-col media + text ─────────────────────────────────
+           Mobile  : media stacked above text
+           Desktop : media left / text right — activates via @container when
+                     the section can hold ≥ 50ch in one line
+      ─────────────────────────────────────────────────────────────────────── -->
+      <section class="content-media-section" aria-labelledby="content-media-heading">
+        <div class="container">
+          <div class="content-media-wrapper">
+
+            <figure class="content-media-figure">
+              <!-- Replace src/alt with the actual image or swap the <img> for a
+                   <video controls> / <iframe> embed as needed.              -->
+              <img
+                src="./_public/media/Images/Start/About/trainer_w_basketball.jpg"
+                alt="Entraîneur avec ballon de basket à l'ASEK"
+                loading="lazy"
+              />
+            </figure>
+
+            <div class="content-media-text">
+              <h2 id="content-media-heading">À propos de l'ASEK</h2>
+              <p>
+                L'Association Sportive Élite Kénitra (ASEK) est dédiée au
+                développement du basketball et du football dans la région de
+                Kénitra. Fondée sur des valeurs de dépassement de soi, de
+                solidarité et d'excellence, l'association accompagne les jeunes
+                talents vers la performance sportive et l'épanouissement
+                personnel.
+              </p>
+              <p>
+                Nos équipes de coaches qualifiés proposent des programmes
+                d'entraînement adaptés à tous les niveaux, du débutant au
+                compétiteur confirmé, dans des installations modernes et un
+                cadre stimulant.
+              </p>
+              <a href="#" class="btn-call">
+                <span class="icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                    <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z"
+                    />
+                  </svg>
+                </span>
+                <span class="text">Nous contacter</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Media + Two-column text ──────────────────────────────────────────────
+           Reusable class: .media-cols-section
+           Mobile  : figure on top, text items stacked below
+           Desktop : figure full-width, text items in a 2-column grid
+      ─────────────────────────────────────────────────────────────────────────── -->
+      <section class="media-cols-section" aria-labelledby="media-cols-1-heading">
+        <div class="container">
+
+          <h2 id="media-cols-1-heading">Lorem ipsum simply dummy</h2>
+
+          <figure class="media-cols-section__figure">
+            <!-- Replace src/alt with your image, or swap for <video controls> / <iframe> -->
+            <img
+              src="https://placehold.co/1200x512"
+              alt="Enfants pratiquant le basketball à l'ASEK"
+              loading="lazy"
+            />
+          </figure>
+
+          <div class="media-cols-section__grid">
+            <div class="media-cols-section__item">
+              <h3>Lorem ipsum is simply dummy</h3>
+              <p>
+                Bienvenue dans l'Association Sportive Élite Kénitra, où nous
+                portons votre passion du sport à un tout autre niveau. Nos
+                entraînements sont conçus pour le dépassement de soi et la
+                convivialité.
+              </p>
+            </div>
+            <div class="media-cols-section__item">
+              <h3>Lorem ipsum is simply dummy</h3>
+              <p>
+                Bienvenue dans l'Association Sportive Élite Kénitra, où nous
+                portons votre passion du sport à un tout autre niveau. Nos
+                entraînements sont conçus pour le dépassement de soi et la
+                convivialité.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════════════════
+           REUSABLE SECTION  »  .cards-grid-section
+           ══════════════════════════════════════════════════════════════════════
+           HOW TO REUSE ON ANOTHER PAGE
+           ─────────────────────────────
+           1. Copy the entire <section class="cards-grid-section"> block.
+           2. Update the heading text and the aria-labelledby / id pair so
+              every instance has a unique ID on the page.
+           3. Replace the <img> src/alt values with your own assets.
+              Swap any <img> for a <video controls> or <iframe> if needed.
+           4. Add or remove .cards-grid-section__card items freely —
+              the grid auto-fills columns; no CSS change is required.
+           ──────────────────────────────────────────────────────────────────
+           LAYOUT BEHAVIOUR
+           Mobile  : cards stacked in a single column
+           Desktop : cards spread into a 3-column grid — driven by
+                     @container (cards-grid) when width > 560px, so the
+                     breakpoint tracks the section width, not the viewport.
+      ══════════════════════════════════════════════════════════════════════ -->
+      <section class="cards-grid-section" aria-labelledby="cards-grid-1-heading">
+        <div class="container">
+
+          <h2 id="cards-grid-1-heading">Lorem Ipsum is simply dummy</h2>
+          <p class="cards-grid-section__lead">
+            Bienvenue dans l&#x27;Association Sportive Élite Kénitra, où nous
+            portons votre passion du sport à un tout autre niveau. Nos
+            entraînements sont conçus pour le dépassement de soi et la
+            convivialité.
+          </p>
+
+          <div class="cards-grid-section__grid">
+
+            <article class="cards-grid-section__card">
+              <!-- Replace src/alt with your own image ↓ -->
+              <figure class="cards-grid-section__card-figure">
+                <img
+                  src="./_public/media/Images/Start/About/KidBasket.jpg"
+                  alt="Enfants pratiquant le basketball à l'ASEK"
+                  loading="lazy"
+                />
+              </figure>
+            </article>
+
+            <article class="cards-grid-section__card">
+              <figure class="cards-grid-section__card-figure">
+                <img
+                  src="./_public/media/Images/Start/About/trainer_w_basketball.jpg"
+                  alt="Entraîneur avec ballon de basket à l'ASEK"
+                  loading="lazy"
+                />
+              </figure>
+            </article>
+
+            <article class="cards-grid-section__card">
+              <figure class="cards-grid-section__card-figure">
+                <img
+                  src="./_public/media/Images/Start/About/KidBasket.jpg"
+                  alt="Enfants pratiquant le basketball à l'ASEK"
+                  loading="lazy"
+                />
+              </figure>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
     </main>
     <footer id="main-footer" role="contentinfo">
       <!-- ── Map + Contact card ─────────────────────────────── -->

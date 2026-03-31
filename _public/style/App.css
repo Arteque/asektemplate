@@ -1995,4 +1995,190 @@ section.galerie .lightbox .lightbox-counter {
 }
 .subpage .page-hero-section .container ul li:last-of-type::after, .subpage .page-hero-section .container ul li:last-of-type::before {
   display: none;
+}
+
+.content-media-section {
+  container-type: inline-size;
+  container-name: content-media;
+}
+.content-media-section .container {
+  padding-block: var(--space-32);
+}
+
+.content-media-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--space-32);
+}
+
+.content-media-figure {
+  margin: 0;
+}
+.content-media-figure img,
+.content-media-figure video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.content-media-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--space-16);
+}
+.content-media-text h2 {
+  font-size: 2rem;
+  color: rgb(var(--color-secondary-100));
+}
+.content-media-text .btn-call {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-margin-before: var(--space-8);
+          margin-block-start: var(--space-8);
+}
+
+@container content-media (inline-size > 50ch) {
+  .content-media-wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .content-media-figure {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 45%;
+            flex: 0 0 45%;
+    max-width: 45%;
+  }
+  .content-media-figure img,
+  .content-media-figure video {
+    height: 100%;
+    max-height: 500px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .content-media-text {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    min-width: 0;
+  }
+}
+.media-cols-section {
+  container-type: inline-size;
+  container-name: media-cols;
+}
+.media-cols-section .container {
+  padding-block: var(--space-32);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--space-32);
+}
+.media-cols-section h2 {
+  font-size: 2.5rem;
+  color: rgb(var(--color-secondary-100));
+}
+.media-cols-section__figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: rgb(var(--color-light-200));
+}
+.media-cols-section__figure img,
+.media-cols-section__figure video {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  max-width: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.media-cols-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+}
+
+@container media-cols (inline-size > 600px) {
+  .media-cols-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.cards-grid-section {
+  container-type: inline-size;
+  container-name: cards-grid;
+}
+.cards-grid-section .container {
+  padding-block: var(--space-32);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--space-24);
+}
+.cards-grid-section h2 {
+  font-size: 2.5rem;
+  color: rgb(var(--color-secondary-100));
+}
+.cards-grid-section__lead {
+  max-width: 65ch;
+  -webkit-padding-after: 0;
+          padding-block-end: 0;
+}
+.cards-grid-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+}
+.cards-grid-section__card {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: rgb(var(--color-light-200));
+}
+.cards-grid-section__card-figure {
+  margin: 0;
+}
+.cards-grid-section__card-figure img,
+.cards-grid-section__card-figure video {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@container cards-grid (inline-size > 560px) {
+  .cards-grid-section__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }/*# sourceMappingURL=App.css.map */

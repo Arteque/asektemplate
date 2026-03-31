@@ -1877,3 +1877,193 @@ section.galerie {
     }
   }
 }
+
+// ── Subpage --- Content Media Section (2-col) ─────────────────────────────
+// Mobile  : figure stacked above text (flex-direction: column)
+// Desktop : activates via @container when the section inline-size ≥ 150ch,
+//           placing the figure on the left and the text on the right.
+
+.content-media-section {
+  // Make this section the container reference used by the @container query below
+  container-type: inline-size;
+  container-name: content-media;
+
+  .container {
+    padding-block: var(--space-32);
+  }
+}
+
+.content-media-wrapper {
+  display: flex;
+  flex-direction: column; // mobile: media on top, text below
+  gap: var(--space-32);
+}
+
+.content-media-figure {
+  margin: 0;
+
+  img,
+  video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+}
+
+.content-media-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-16);
+
+  h2 {
+    font-size: 2rem;
+    color: rgb(var(--color-secondary-100));
+  }
+
+  .btn-call {
+    align-self: flex-start;
+    margin-block-start: var(--space-8);
+  }
+}
+
+// ── @container: side-by-side layout when section ≥ 150ch wide ────────────
+@container content-media (inline-size > 50ch) {
+  .content-media-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .content-media-figure {
+    flex: 0 0 45%;
+    max-width: 45%;
+
+    img,
+    video {
+      height: 100%;
+      max-height: 500px;
+      object-fit: cover;
+    }
+  }
+
+  .content-media-text {
+    flex: 1;
+    min-width: 0; // prevent flex blowout
+  }
+}
+
+// ── Media + Two-column text section (.media-cols-section) ─────────────────
+// Reusable across pages.
+// Mobile  : figure on top, text items stacked.
+// Desktop : figure full-width, text items switch to a 2-col grid via @container.
+
+.media-cols-section {
+  container-type: inline-size;
+  container-name: media-cols;
+
+  .container {
+    padding-block: var(--space-32);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-32);
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: rgb(var(--color-secondary-100));
+  }
+
+  &__figure {
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: rgb(var(--color-light-200));
+
+    img,
+    video {
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  // Mobile: single-column
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-24);
+  }
+}
+
+// Switch to 2-column text grid when the section is wide enough
+@container media-cols (inline-size > 600px) {
+  .media-cols-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// ── Cards Grid Section (.cards-grid-section) ──────────────────────────────
+// Reusable across pages.
+// Mobile  : cards stacked in a single column.
+// Desktop : cards in a 3-column responsive grid via @container — no media
+//           queries needed; breakpoint is relative to the section width.
+
+.cards-grid-section {
+  container-type: inline-size;
+  container-name: cards-grid;
+
+  .container {
+    padding-block: var(--space-32);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: rgb(var(--color-secondary-100));
+  }
+
+  &__lead {
+    max-width: 65ch;
+    padding-block-end: 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr; // mobile: single column
+    gap: var(--space-24);
+  }
+
+  &__card {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: rgb(var(--color-light-200));
+  }
+
+  &__card-figure {
+    margin: 0;
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      display: block;
+      object-fit: cover;
+    }
+  }
+}
+
+// 3-column grid once the section is wider than 560px
+@container cards-grid (inline-size > 560px) {
+  .cards-grid-section__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
