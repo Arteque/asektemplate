@@ -1157,6 +1157,12 @@ section {
         gap: var(--space-16);
       }
     }
+    ._groupes-content{
+      @container (width > 120ch) {
+        display: flex;
+        gap: var(--space-16);
+      }
+    }
     .card-container {
       max-width: 500px;
       width: 90%;
@@ -1692,6 +1698,7 @@ section.galerie {
     min-height: 300px;
     overflow: hidden;
     position: relative;
+    top:35px;
 
     iframe {
       display: block;
@@ -1713,7 +1720,7 @@ section.galerie {
   .footer-nav-bar {
     background-color: rgb(var(--color-secondary-100));
     padding-block: calc(var(--space-32) * 2) var(--space-16);
-    transform: translateY(-35%);
+    // transform: translateY(-35%);
 
     .container {
       display: flex;

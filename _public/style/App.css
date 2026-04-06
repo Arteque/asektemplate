@@ -1227,6 +1227,14 @@ section.groupes .section-header {
     gap: var(--space-16);
   }
 }
+@container (width > 120ch) {
+  section.groupes ._groupes-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: var(--space-16);
+  }
+}
 section.groupes .card-container {
   max-width: 500px;
   width: 90%;
@@ -1800,6 +1808,7 @@ section.galerie .lightbox .lightbox-counter {
   min-height: 300px;
   overflow: hidden;
   position: relative;
+  top: 35px;
 }
 #main-footer .footer-map iframe {
   display: block;
@@ -1818,8 +1827,6 @@ section.galerie .lightbox .lightbox-counter {
 #main-footer .footer-nav-bar {
   background-color: rgb(var(--color-secondary-100));
   padding-block: calc(var(--space-32) * 2) var(--space-16);
-  -webkit-transform: translateY(-35%);
-          transform: translateY(-35%);
 }
 #main-footer .footer-nav-bar .container {
   display: -webkit-box;
