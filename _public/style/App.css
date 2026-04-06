@@ -957,7 +957,7 @@ body:has(.main-header.nav-is-open) .main-nav ._nav-list {
             justify-content: space-between;
   }
   .about ._col-1 {
-    max-width: 30dvw;
+    max-width: 45dvw;
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
