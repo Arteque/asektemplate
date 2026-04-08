@@ -92,12 +92,101 @@ $chat-config: (
     left: 0;
     right: 0;
     width: 100%;
+    padding: 0;
+
+    .chat-toggle {
+      position: fixed;
+      bottom: var(--space-16);
+      right: var(--space-16);
+      z-index: map-get($chat-config, z-index) + 1;
+    }
 
     .chat-window {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
       width: 100%;
-      height: 100vh;
-      max-height: 100vh;
-      border-radius: 0;
+      height: calc(100vh - 60px); // Leave space for potential mobile navigation
+      max-height: calc(100vh - env(safe-area-inset-bottom, 0px));
+      border-radius: 16px 16px 0 0;
+      transform: translateY(100%);
+
+      // Smooth slide-up animation
+      &.open {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Enhanced mobile styles with .mobile class
+  &.mobile {
+    .chat-window {
+      // Ensure proper mobile layout
+      display: flex;
+      flex-direction: column;
+
+      // Better mobile header
+      .chat-header {
+        padding: var(--space-16) var(--space-16) var(--space-8);
+        border-radius: 16px 16px 0 0;
+
+        // Add drag handle indicator for mobile
+        &::before {
+          content: "";
+          position: absolute;
+          top: 8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 32px;
+          height: 4px;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 2px;
+        }
+      }
+
+      // Optimize messages area for mobile
+      .chat-messages {
+        flex: 1;
+        padding: var(--space-8) var(--space-16);
+        padding-bottom: env(safe-area-inset-bottom, var(--space-8));
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      // Mobile-optimized input
+      .chat-input-container {
+        padding: var(--space-8) var(--space-16);
+        padding-bottom: calc(
+          var(--space-16) + env(safe-area-inset-bottom, 0px)
+        );
+
+        .chat-input {
+          font-size: 16px; // Prevents zoom on iOS
+          min-height: 44px; // iOS touch target minimum
+        }
+
+        .chat-send {
+          min-width: 44px;
+          min-height: 44px;
+        }
+      }
+
+      // Mobile quick replies
+      .chat-quick-replies {
+        padding: var(--space-8) var(--space-16);
+
+        .quick-reply-btn {
+          min-height: 40px;
+          padding: var(--space-8) var(--space-16);
+          font-size: 14px;
+        }
+      }
+    }
+
+    // Hide minimize button on mobile - not needed
+    .chat-minimize {
+      display: none;
     }
   }
 
@@ -271,6 +360,23 @@ $chat-config: (
     .chat-quick-replies,
     .chat-input-container {
       display: none;
+    }
+  }
+
+  // Mobile-specific window behavior
+  @include mobile-responsive {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    max-height: calc(100vh - env(safe-area-inset-bottom, 0px));
+    border-radius: 16px 16px 0 0;
+    transform: translateY(100%);
+    opacity: 1; // Always visible on mobile when open
+
+    &.open {
+      transform: translateY(0);
     }
   }
 }
@@ -709,6 +815,105 @@ $chat-config: (
 @media print {
   .chat-widget {
     display: none;
+  }
+}
+
+/* =============================================================================
+   Mobile-Specific Optimizations
+   ============================================================================= */
+
+@include mobile-responsive {
+  // Prevent body scroll when chat is open on mobile
+  body:has(.chat-widget.mobile.open) {
+    overflow: hidden;
+  }
+
+  // Mobile touch improvements
+  .chat-widget {
+    // Improve touch targets
+    .chat-toggle {
+      width: 56px;
+      height: 56px;
+
+      // Add touch feedback
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    // Mobile-specific animations
+    .chat-window {
+      // Add swipe-down to close gesture area
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        z-index: 10;
+        cursor: grab;
+      }
+
+      // Smooth mobile animations
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+      // Better mobile scrolling
+      .chat-messages {
+        // Momentum scrolling on iOS
+        -webkit-overflow-scrolling: touch;
+
+        // Hide scrollbar on mobile
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+
+    // Mobile button improvements
+    button {
+      // Minimum touch target size
+      min-width: 44px;
+      min-height: 44px;
+
+      // Remove tap highlight
+      -webkit-tap-highlight-color: transparent;
+
+      // Touch feedback
+      &:active {
+        transform: scale(0.96);
+      }
+    }
+
+    // Mobile input improvements
+    .chat-input {
+      // Prevent zoom on iOS when focusing
+      font-size: 16px;
+
+      // Better mobile keyboard handling
+      &:focus {
+        // Slight scroll adjustment for mobile keyboards
+        scroll-margin-bottom: env(keyboard-inset-height, 0px);
+      }
+    }
+  }
+}
+
+// Landscape mobile optimization
+@media (max-width: 768px) and (orientation: landscape) {
+  .chat-widget.mobile {
+    .chat-window {
+      height: calc(100vh - 40px);
+
+      .chat-header {
+        padding: var(--space-8) var(--space-16);
+      }
+
+      .chat-messages {
+        padding: var(--space-8) var(--space-16);
+      }
+    }
   }
 }
 

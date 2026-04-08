@@ -25,6 +25,9 @@ export class ChatUI {
     this.setupEventListeners();
     this.applyTheme();
     this.setupAnimations();
+
+    // Initialize mobile state
+    this.handleResize();
   }
 
   /**
@@ -192,6 +195,80 @@ export class ChatUI {
 
     // Resize handler
     window.addEventListener("resize", () => this.handleResize());
+
+    // Mobile swipe gesture support
+    if ("ontouchstart" in window) {
+      this.setupMobileGestures();
+    }
+  }
+
+  /**
+   * Setup mobile touch gestures
+   */
+  setupMobileGestures() {
+    let startY = 0;
+    let currentY = 0;
+    let isDragging = false;
+
+    const handleTouchStart = (e) => {
+      if (!this.isOpen || window.innerWidth > 768) return;
+
+      // Only allow drag from the top area of the chat window
+      const rect = this.elements.window.getBoundingClientRect();
+      const touchY = e.touches[0].clientY;
+
+      if (touchY < rect.top + 60) {
+        // Top 60px of chat window
+        startY = touchY;
+        isDragging = true;
+        this.elements.window.style.transition = "none";
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isDragging) return;
+
+      currentY = e.touches[0].clientY;
+      const deltaY = currentY - startY;
+
+      // Only allow downward swipe
+      if (deltaY > 0) {
+        e.preventDefault();
+        const progress = Math.min(deltaY / 200, 1); // 200px to fully close
+        this.elements.window.style.transform = `translateY(${deltaY}px)`;
+        this.elements.window.style.opacity = 1 - progress * 0.3;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (!isDragging) return;
+
+      isDragging = false;
+      this.elements.window.style.transition = "";
+
+      const deltaY = currentY - startY;
+
+      if (deltaY > 100) {
+        // If swiped down more than 100px, close
+        this.closeChat();
+      } else {
+        // Snap back to open position
+        this.elements.window.style.transform = "";
+        this.elements.window.style.opacity = "";
+      }
+
+      startY = 0;
+      currentY = 0;
+    };
+
+    // Add touch listeners to the chat window
+    this.elements.window.addEventListener("touchstart", handleTouchStart, {
+      passive: false,
+    });
+    this.elements.window.addEventListener("touchmove", handleTouchMove, {
+      passive: false,
+    });
+    this.elements.window.addEventListener("touchend", handleTouchEnd);
   }
 
   /**
@@ -248,11 +325,26 @@ export class ChatUI {
    * Handle window resize
    */
   handleResize() {
-    // Adjust chat position on mobile
-    if (window.innerWidth <= 768) {
+    const isMobile = window.innerWidth <= 768;
+
+    // Add/remove mobile class
+    if (isMobile) {
       this.elements.widget.classList.add("mobile");
+
+      // On mobile, if chat is open, ensure proper positioning
+      if (this.isOpen) {
+        document.body.style.overflow = "hidden"; // Prevent background scroll
+        this.elements.window.classList.add("open");
+      }
     } else {
       this.elements.widget.classList.remove("mobile");
+
+      // Restore body scroll on desktop
+      if (document.body.style.overflow === "hidden") {
+        document.body.style.overflow = "";
+      }
+
+      this.elements.window.classList.remove("open");
     }
   }
 
@@ -282,11 +374,24 @@ export class ChatUI {
     this.elements.window.removeAttribute("inert");
     this.elements.toggle.setAttribute("aria-label", "Fermer le chat");
 
-    // Setup focus trap for accessibility
-    setTimeout(() => {
-      this.setupFocusTrap();
-      this.elements.input.focus();
-    }, 300);
+    // Mobile-specific behavior
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      document.body.style.overflow = "hidden"; // Prevent background scroll
+      this.elements.window.classList.add("open");
+
+      // Longer delay for mobile slide animation
+      setTimeout(() => {
+        this.setupFocusTrap();
+        this.elements.input.focus();
+      }, 400);
+    } else {
+      // Desktop behavior
+      setTimeout(() => {
+        this.setupFocusTrap();
+        this.elements.input.focus();
+      }, 300);
+    }
 
     // Hide notification badge
     this.hideNotification();
@@ -310,6 +415,13 @@ export class ChatUI {
       activeElement.blur();
       // Move focus to the chat toggle button
       this.elements.toggle.focus();
+    }
+
+    // Mobile-specific behavior
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      document.body.style.overflow = ""; // Restore background scroll
+      this.elements.window.classList.remove("open");
     }
 
     this.isOpen = false;
